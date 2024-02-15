@@ -1,6 +1,6 @@
 import { useState } from "react";
 import MainContainer from "./components/MainContainer";
-import TopNav from "./components/Header";
+import TopNav from "./components/TopNav";
 import React from "react";
 
 function App() {
