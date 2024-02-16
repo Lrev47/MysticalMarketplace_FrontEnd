@@ -1,9 +1,18 @@
 import { useGetAllProductsQuery } from "../StoreApi";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import SingleProduct from "./singleProduct";
 
 const HomePage = () => {
+  const navigate = useNavigate();
   const { data, error, isLoading } = useGetAllProductsQuery();
+  const [productId, setProductId] = useState(null);
+
+  const handleClick = (productId) => {
+    navigate(`/products/${productId}`);
+    setProductId(productId);
+    console.log("SELECTED PRODUCT", productId);
+  };
 
   console.log(data);
 
@@ -36,6 +45,7 @@ const HomePage = () => {
               </div>
             </div>
           ))}
+        {productId && <SingleProduct productId={productId} />}
       </div>
     </>
   );

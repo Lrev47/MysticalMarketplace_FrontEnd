@@ -1,3 +1,7 @@
-import { ProductsApi, useGetAllProductsQuery } from "./ProductsApi";
+import {
+  ProductsApi,
+  useGetAllProductsQuery,
+  useGetSingleProductQuery,
+} from "./ProductsApi";
 
-export { ProductsApi, useGetAllProductsQuery };
+export { ProductsApi, useGetAllProductsQuery, useGetSingleProductQuery };
