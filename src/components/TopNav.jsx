@@ -6,6 +6,7 @@ export function TopNav() {
       <Link to="/">Home</Link>
       <Link to="/">Account</Link>
       <Link to="/">Cart</Link>
+      <Link to="/login">LogIn</Link>
     </div>
   );
 }
