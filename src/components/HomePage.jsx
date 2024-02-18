@@ -24,7 +24,7 @@ const HomePage = () => {
   }
   return (
     <>
-      <div className="HomePageContainer">
+      <div className="Container">
         {data &&
           data.map((product) => (
             <div

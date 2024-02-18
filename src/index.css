@@ -4,3 +4,75 @@
 .ProductImage {
   width: 200px;
 }
+.Container {
+  background-color: aqua;
+  width: 70%;
+  margin: 0 auto;
+  height: 950vh;
+}
+.singleProductContainer {
+  background-color: aqua;
+  width: 70%;
+  margin: 0 auto;
+  height: 98vh;
+}
+
+html {
+  background-color: rgb(178, 205, 255);
+}
+.TopNav {
+  width: 70%;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: aqua;
+  display: flex;
+  justify-content: space-around;
+  height: 5rem;
+}
+h1 {
+  margin: 0;
+}
+.FormWrapper {
+  color: beige;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  background-color: rgb(24, 115, 115);
+  gap: 10vh;
+  padding: 10px;
+}
+
+.LogInFormWrapper {
+  color: beige;
+  height: 20vh;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  background-color: rgb(24, 115, 115);
+  gap: 10vh;
+  padding: 40px;
+}
+.LoginFormLabel {
+  margin-left: 15rem;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.UserInfo {
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.registerbutton {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+.LogInbutton {
+  /* padding: 10px; */
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}

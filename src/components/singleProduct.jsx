@@ -20,7 +20,7 @@ const SingleProduct = () => {
   console.log(typeof productDetails);
   return (
     <>
-      <div>
+      <div className="singleProductContainer">
         <h1>{productDetails.title}</h1>
         <img className="ProductImage" src={productDetails.image} />
         <p>{productDetails.category}</p>

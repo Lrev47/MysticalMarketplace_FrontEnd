@@ -28,24 +28,26 @@ export function LogInUser({ setToken }) {
   }
   return (
     <>
-      <div>
+      <div className="Container">
         <form onSubmit={submitLogIn}>
-          <label>
-            User Name
-            <input
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
-            ></input>
-          </label>
-          <label>
-            Password
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            ></input>
-          </label>
-          <label>
+          <div className="LogInFormWrapper">
+            <label className="LoginFormLabel">
+              User Name:
+              <input
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+              ></input>
+            </label>
+            <label className="LoginFormLabel">
+              Password:
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              ></input>
+            </label>
+          </div>
+          <label className="LogInbutton">
             <button type="submit">Submit</button>
           </label>
         </form>

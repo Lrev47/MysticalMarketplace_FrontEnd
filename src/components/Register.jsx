@@ -50,77 +50,82 @@ export function RegisterForm({ setToken }) {
   }
   return (
     <>
-      <div>
-        <form onSubmit={submitRegister}>
-          <div className="User Info">
-            <label>
-              First Name{" "}
-              <input
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-              />
-            </label>
-            <label>
-              Last Name{" "}
-              <input
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-              />
-            </label>
-            <label>
-              User Name
-              <input
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
-              />
-            </label>
-            <label>
-              Email
-              <input value={email} onChange={(e) => setEmail(e.target.value)} />
-            </label>
-            <label>
-              Password
-              <input
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </label>
+      <div className="Container">
+        <form className="RegisterForm" onSubmit={submitRegister}>
+          <div className="FormWrapper">
+            <div className="UserInfo">
+              <label>
+                First Name{" "}
+                <input
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+              </label>
+              <label>
+                Last Name{" "}
+                <input
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+              </label>
+              <label>
+                User Name
+                <input
+                  value={userName}
+                  onChange={(e) => setUserName(e.target.value)}
+                />
+              </label>
+              <label>
+                Email
+                <input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </label>
+              <label>
+                Password
+                <input
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </label>
+            </div>
+            <div className="UserInfo">
+              <label>
+                Street
+                <input
+                  value={street}
+                  onChange={(e) => setStreet(e.target.value)}
+                />
+              </label>
+              <label>
+                Room Number
+                <input
+                  value={roomNum}
+                  onChange={(e) => setRoomNum(Number(e.target.value))}
+                />
+              </label>
+              <label>
+                City
+                <input value={city} onChange={(e) => setCity(e.target.value)} />
+              </label>
+              <label>
+                Zip
+                <input
+                  value={zipcode}
+                  onChange={(e) => setZipcode(e.target.value)}
+                />
+              </label>
+              <label>
+                Phone Number
+                <input
+                  value={phoneNum}
+                  onChange={(e) => setPhoneNum(e.target.value)}
+                />
+              </label>
+            </div>
           </div>
-          <div className="User Address Info">
-            <label>
-              Street
-              <input
-                value={street}
-                onChange={(e) => setStreet(e.target.value)}
-              />
-            </label>
-            <label>
-              Room Number
-              <input
-                value={roomNum}
-                onChange={(e) => setRoomNum(Number(e.target.value))}
-              />
-            </label>
-            <label>
-              City
-              <input value={city} onChange={(e) => setCity(e.target.value)} />
-            </label>
-            <label>
-              Zip
-              <input
-                value={zipcode}
-                onChange={(e) => setZipcode(e.target.value)}
-              />
-            </label>
-            <label>
-              Phone Number
-              <input
-                value={phoneNum}
-                onChange={(e) => setPhoneNum(e.target.value)}
-              />
-            </label>
-          </div>
-          <label>
+          <label className="registerbutton">
             <button type="submit">submit</button>
           </label>
         </form>
