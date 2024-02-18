@@ -17,9 +17,10 @@ export function LogInUser({ setToken }) {
         password: password,
       };
       console.log("login users data: ", user);
-      const result = loginUser(user).unwrap();
-      setToken(result.token);
+      const result = await loginUser(user).unwrap();
       console.log("Login Response from API:", result);
+      setToken(result.token);
+
       console.log("LOGIN MESSAGE:", result.message);
     } catch (error) {
       console.error("Error:", error);
@@ -30,7 +31,7 @@ export function LogInUser({ setToken }) {
       <div>
         <form onSubmit={submitLogIn}>
           <label>
-            Email
+            User Name
             <input
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
