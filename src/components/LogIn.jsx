@@ -2,26 +2,27 @@ import { useState } from "react";
 import { useLoginUserMutation } from "../StoreApi/index.js";
 import { useNavigate } from "react-router-dom";
 
-export function LogInUser({ setToken }) {
+export function LogInUser({ setToken, setUserName }) {
   const navigate = useNavigate();
   const [loginUser] = useLoginUserMutation();
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [loginUserName, setLoginUserName] = useState("johnd");
+  const [password, setPassword] = useState("m38rmF$");
 
   async function submitLogIn(event) {
     event.preventDefault();
     console.log("Submit Pressed");
     try {
       const user = {
-        username: userName,
+        username: loginUserName,
         password: password,
       };
-      console.log("login users data: ", user);
+
+      console.log("Login Users Data: ", user);
+      console.log("User Name:", user.username);
+      setUserName(user.username);
       const result = await loginUser(user).unwrap();
       console.log("Login Response from API:", result);
       setToken(result.token);
-
-      console.log("LOGIN MESSAGE:", result.message);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -34,15 +35,17 @@ export function LogInUser({ setToken }) {
             <label className="LoginFormLabel">
               User Name:
               <input
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
+                // placeholder="johnd"
+                value="johnd"
+                onChange={(e) => setLoginUserName(e.target.value)}
               ></input>
             </label>
             <label className="LoginFormLabel">
               Password:
               <input
+                // placeholder="m38rmF$"
                 type="password"
-                value={password}
+                value="m38rmF$"
                 onChange={(e) => setPassword(e.target.value)}
               ></input>
             </label>

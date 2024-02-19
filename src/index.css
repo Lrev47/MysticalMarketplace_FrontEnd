@@ -18,7 +18,8 @@
 }
 
 html {
-  background-color: rgb(178, 205, 255);
+  height: 120vh;
+  background-image: linear-gradient(rgba(27, 21, 84, 0.801), rgb(20, 20, 31));
 }
 .TopNav {
   width: 70%;
@@ -46,6 +47,7 @@ h1 {
   color: beige;
   height: 20vh;
   display: grid;
+  /* margin-top: 0px; */
   grid-template-rows: 1fr 1fr;
   background-color: rgb(24, 115, 115);
   gap: 10vh;
@@ -71,7 +73,6 @@ h1 {
   justify-content: center;
 }
 .LogInbutton {
-  /* padding: 10px; */
   display: flex;
   justify-content: center;
   margin-top: 10px;

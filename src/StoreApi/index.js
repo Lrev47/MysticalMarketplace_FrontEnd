@@ -3,11 +3,17 @@ import {
   useGetAllProductsQuery,
   useGetSingleProductQuery,
 } from "./ProductsApi";
-import { useLoginUserMutation } from "./userApi";
+import {
+  useLoginUserMutation,
+  useGetUserByIdQuery,
+  useGetAllUsersQuery,
+} from "./userApi";
 
 export {
   useGetAllProductsQuery,
   useGetSingleProductQuery,
   useLoginUserMutation,
   useGetUserCartQuery,
+  useGetUserByIdQuery,
+  useGetAllUsersQuery,
 };

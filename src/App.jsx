@@ -5,11 +5,19 @@ import React from "react";
 
 function App() {
   const [token, setToken] = useState(null);
-
+  const [userId, setUserId] = useState(null);
+  const [userName, setUserName] = useState(null);
   return (
     <>
-      <TopNav />
-      <MainContainer token={token} setToken={setToken} />
+      <TopNav token={token} userId={userId} />
+      <MainContainer
+        userName={userName}
+        userId={userId}
+        token={token}
+        setUserName={setUserName}
+        setUserId={setUserId}
+        setToken={setToken}
+      />
     </>
   );
 }

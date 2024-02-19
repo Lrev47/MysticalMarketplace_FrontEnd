@@ -3,7 +3,7 @@ import { useGetSingleProductQuery } from "../StoreApi/index.js";
 
 const SingleProduct = () => {
   const { productId } = useParams();
-  console.log("PRODUCT ID", productId);
+
   const {
     data: productDetails,
     error,
@@ -16,8 +16,7 @@ const SingleProduct = () => {
   if (error) {
     return <div>{error.message}</div>;
   }
-  console.log(productDetails);
-  console.log(typeof productDetails);
+  console.log("Product Details:", productDetails);
   return (
     <>
       <div className="singleProductContainer">

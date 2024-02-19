@@ -11,10 +11,8 @@ const HomePage = () => {
   const handleClick = (productId) => {
     navigate(`/products/${productId}`);
     setProductId(productId);
-    console.log("SELECTED PRODUCT", productId);
+    console.log("You Clicked Product Number ", productId);
   };
-
-  console.log(data);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -27,12 +25,9 @@ const HomePage = () => {
       <div className="Container">
         {data &&
           data.map((product) => (
-            <div
-              key={product.id}
-              className="ProductCard"
-              onClick={() => handleClick(product.id)}
-            >
+            <div key={product.id} className="ProductCard">
               <img
+                onClick={() => handleClick(product.id)}
                 className="ProductImage"
                 src={product.image}
                 alt={product.title}
