@@ -20,13 +20,7 @@ export const UserApi = createApi({
         body: user,
       }),
     }),
-    getUserById: builder.query({
-      query: (token, userId) => ({
-        url: `/users/${userId}`,
-        method: "GET",
-        headers: { Authorization: `Bearer ${token}` },
-      }),
-    }),
+
     getAllUsers: builder.query({
       query: () => ({
         url: "/users",

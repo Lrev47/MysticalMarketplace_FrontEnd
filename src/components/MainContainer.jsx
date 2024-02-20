@@ -5,29 +5,15 @@ import LogInUser from "./LogIn";
 import RegisterForm from "./Register";
 import AccountPage from "./AccountPage";
 
-function MainContainer({
-  token,
-  setToken,
-  userId,
-  setUserId,
-  userName,
-  setUserName,
-}) {
+function MainContainer({ token, setToken, userName, setUserName }) {
   return (
     <div>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/products/:productId" element={<SingleProduct />} />
         <Route
-          path="/Account/:userId"
-          element={
-            <AccountPage
-              userName={userName}
-              userId={userId}
-              setUserId={setUserId}
-              token={token}
-            />
-          }
+          path="/Account"
+          element={<AccountPage userName={userName} token={token} />}
         />
         <Route
           path="/login"
