@@ -33,9 +33,9 @@ const HomePage = () => {
                 alt={product.title}
               />
               <div className="infoDiv">
-                <h2>{product.title}</h2>
-                <p>{product.category}</p>
-                <p>{product.description}</p>
+                <h4>{product.title}</h4>
+                {/* <p>{product.category}</p> */}
+                {/* <p>{product.description}</p> */}
                 <p>{product.price}</p>
               </div>
             </div>
