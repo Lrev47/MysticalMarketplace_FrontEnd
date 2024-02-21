@@ -34,9 +34,12 @@ const HomePage = () => {
               />
               <div className="infoDiv">
                 <h4>{product.title}</h4>
-                {/* <p>{product.category}</p> */}
-                {/* <p>{product.description}</p> */}
-                <p>{product.price}</p>
+                <div className="PriceandCartDisplay">
+                  <p>{product.price}</p>
+                  <span>
+                    <button>Add to Cart</button>
+                  </span>
+                </div>
               </div>
             </div>
           ))}
