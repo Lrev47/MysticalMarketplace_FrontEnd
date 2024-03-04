@@ -20,6 +20,7 @@ const HomePage = () => {
   if (error) {
     return <div>{error.message}</div>;
   }
+
   return (
     <>
       <div className="Container">
@@ -29,11 +30,12 @@ const HomePage = () => {
               <img
                 onClick={() => handleClick(product.id)}
                 className="ProductImage"
-                src={product.image}
-                alt={product.title}
+                src={product.imageUrl}
+                alt={product.name}
               />
+
               <div className="infoDiv">
-                <h4>{product.title}</h4>
+                <h4>{product.name}</h4>
                 <div className="PriceandCartDisplay">
                   <p>{product.price}</p>
                   <span>
