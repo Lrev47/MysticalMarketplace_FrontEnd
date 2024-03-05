@@ -1,7 +1,9 @@
 import { useGetAllProductsQuery } from "../StoreApi";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+
 import SingleProduct from "./singleProduct";
+import ProductDisplay from "./ProductDisplay";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -20,9 +22,12 @@ const HomePage = () => {
   if (error) {
     return <div>{error.message}</div>;
   }
-
+  console.log(data);
   return (
     <>
+      <div className="ProductDisplayContainer">
+        <ProductDisplay />
+      </div>
       <div className="Container">
         {data &&
           data.map((product) => (
