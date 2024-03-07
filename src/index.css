@@ -1,116 +1,108 @@
-#background {
-  background-color: antiquewhite;
-}
-.ProductImage {
-  width: 200px;
-}
-.Container {
-  /* background-image: linear-gradient(
-    rgb(255, 255, 255),
-    rgb(20, 20, 31),
-    rgb(20, 20, 31)
-  ); */
-  width: 70%;
-  margin: 0 auto;
-  /* height: 950vh; */
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-.singleProductContainer {
-  width: 70%;
-  margin: 0 auto;
-  height: 98vh;
-}
-
-html {
-  height: 980vh;
-  background-color: #bcf5cd;
-}
-.ProductCard {
-  background-color: rgb(255, 255, 255);
-  margin-left: 60px;
-  width: 300px;
-  height: 400px;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-}
+/* TOP NAV BAR */
 .TopNav {
-  width: 100%;
-  margin: auto;
-  margin-top: 0;
-  margin-bottom: 0;
-  background-color: rgb(5, 0, 28);
-  display: flex;
-  justify-content: space-around;
-  height: 5rem;
-}
-h1 {
+  background-color: rgb(167, 196, 170);
   margin: 0;
-}
-.FormWrapper {
-  color: beige;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  background-color: rgb(24, 115, 115);
-  gap: 10vh;
-  padding: 10px;
-}
-
-.LogInFormWrapper {
-  color: beige;
-  height: 20vh;
-  display: grid;
-  /* margin-top: 0px; */
-  grid-template-rows: 1fr 1fr;
-  background-color: rgb(24, 115, 115);
-  gap: 10vh;
-  padding: 40px;
-}
-.LoginFormLabel {
-  margin-left: 15rem;
-  font-size: 20px;
-  padding: 10px;
-}
-
-.UserInfo {
-  font-size: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  height: 3vh;
+  display: flex;
   justify-content: center;
+  text-align: center;
+  gap: 20px;
+  padding-left: 40%;
+}
+.TopNavLinks {
+  color: black;
+  text-decoration: none;
+  padding-top: 5px;
+}
+.searchBarForm {
+  margin-left: 500px;
+  display: flex;
   align-items: center;
 }
-.registerbutton {
-  padding: 10px;
-  display: flex;
-  justify-content: center;
+.SearchBarButton {
+  margin-right: 10px;
 }
-.LogInbutton {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
+.SearchBar {
+  margin-right: 300px;
 }
-.infoDiv {
+.SearchBarButton {
+  width: 20px;
+}
+.SearchBarButton:hover {
+  cursor: pointer;
+}
+html {
+  background-color: rgb(210, 227, 210);
+}
+
+.TopNavTwo {
+  /* background-color: aqua; */
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-end; */
+  padding-left: 63vw;
+  gap: 2px;
+}
+
+.TopNavTwoLinks {
+  background-color: white;
+  color: black;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+}
+/* PRODUCT DISPLAY */
+
+.ProductDisplayContainer {
+  background-color: rgb(185, 219, 190);
+  width: 70vw;
+  height: 700px;
+  margin-left: 13%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.displayImage {
+  width: 500px;
+  margin-top: 90px;
+}
+.ProductDisplayInfo {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  width: 500px;
 }
-.ProductImage {
-  max-height: 300px;
-  margin-top: 20px;
-  margin-left: 40px;
+/* HOME PAGE */
+.HomePageProductsContainer {
+  width: 70vw;
+  height: auto;
+  margin-left: 13%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-.PriceandCartDisplay {
+.HomePageProductImage {
+  width: 200px;
+  margin-left: 20%;
+  margin-top: 30px;
+}
+.Footer {
+  background-color: rgb(185, 219, 190);
+  width: 70vw;
+  height: 700px;
+  margin-left: 13%;
+  margin-top: 200px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 200px;
 }
-.ProductDisplayContainer {
-  width: 100vw;
-  background-color: aqua;
-  margin: 10px 10px;
+.WarningLabel {
+  padding: 50px;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
 }
-.displayImage {
-  width: 600px;
+.socialMediaButtons {
+  display: flex;
+  justify-content: center;
 }

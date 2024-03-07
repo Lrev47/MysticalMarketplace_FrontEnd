@@ -29,7 +29,7 @@ const ProductDisplay = () => {
     return () => clearInterval(intervalId); // Cleanup interval on component unmount
   }, [randomProducts]);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading || !randomProducts.length) return <p>Loading...</p>;
   if (error) return <p>Error fetching products.</p>;
 
   return (
@@ -42,6 +42,7 @@ const ProductDisplay = () => {
       </div>
       <div className="ProductDisplayInfo">
         <h2>{randomProducts[productIndex].name}</h2>
+        <p>{randomProducts[productIndex].description}</p>
       </div>
     </div>
   );

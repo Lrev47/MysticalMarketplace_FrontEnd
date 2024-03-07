@@ -14,16 +14,39 @@ export function TopNav({ token, userId }) {
 
   return (
     <div className="TopNav">
-      <Link to="/">Home</Link>
+      <Link className="TopNavLinks" to="/">
+        Home
+      </Link>
 
-      <a href="/Account" onClick={accountOrLoginRedirect}>
+      <a
+        className="TopNavLinks"
+        href="/Account"
+        onClick={accountOrLoginRedirect}
+      >
         Account
       </a>
 
-      <Link to="/">Cart</Link>
-      <Link to="/login">LogIn</Link>
-      <Link to="/Register">Register</Link>
+      <Link className="TopNavLinks" to="/">
+        Cart
+      </Link>
+      <Link className="TopNavLinks" to="/login">
+        LogIn
+      </Link>
+      <Link className="TopNavLinks" to="/Register">
+        Register
+      </Link>
+
+      {/* need to find out how to search */}
+      <form className="searchBarForm">
+        <img
+          src="https://imagizer.imageshack.com/img923/7796/1WvexY.png"
+          alt="Search"
+          className="SearchBarButton"
+        />
+        <input className="SearchBar" />
+      </form>
     </div>
+    // need to find out how to search
   );
 }
 
