@@ -28,16 +28,18 @@ const HomePage = () => {
       <div className="ProductDisplayContainer">
         <ProductDisplay />
       </div>
+
       <div className="HomePageProductsContainer">
         {data &&
           data.map((product) => (
-            <img
-              onClick={() => handleClick(product.id)}
-              className="HomePageProductImage"
-              src={product.imageUrl}
-              alt={product.name}
-              key={product.id}
-            />
+            <div className="ProductContainer" key={product.id}>
+              <img
+                className="HomePageProductImage"
+                src={product.imageUrl}
+                alt={product.name}
+              />
+              <div className="ImageOverlay">{product.name}</div>
+            </div>
           ))}
         {productId && <SingleProduct productId={productId} />}
       </div>

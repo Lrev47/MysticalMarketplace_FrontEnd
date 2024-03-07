@@ -15,7 +15,7 @@
   padding-top: 5px;
 }
 .searchBarForm {
-  margin-left: 500px;
+  margin-left: 200px;
   display: flex;
   align-items: center;
 }
@@ -31,16 +31,21 @@
 .SearchBarButton:hover {
   cursor: pointer;
 }
+.CartImageIcon {
+  width: 40px;
+  margin-left: 20rem;
+  position: relative;
+  top: -8px;
+}
 html {
   background-color: rgb(210, 227, 210);
 }
 
 .TopNavTwo {
-  /* background-color: aqua; */
   height: 10vh;
   display: flex;
   align-items: center;
-  /* justify-content: flex-end; */
+
   padding-left: 63vw;
   gap: 2px;
 }
@@ -67,24 +72,58 @@ html {
   width: 500px;
   margin-top: 90px;
 }
+
 .ProductDisplayInfo {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 500px;
+  gap: 200px;
+  text-align: justify;
 }
 /* HOME PAGE */
 .HomePageProductsContainer {
-  width: 70vw;
+  width: 81.5vw;
   height: auto;
-  margin-left: 13%;
+  margin-left: 9%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
+.ProductContainer {
+  width: fit-content;
+  margin-left: 4.25vw;
+  position: relative;
+}
 .HomePageProductImage {
-  width: 200px;
-  margin-left: 20%;
-  margin-top: 30px;
+  width: 230px;
+  margin-top: 7vh;
+  z-index: 2;
+}
+.HomePageProductImage:hover {
+  cursor: pointer;
+}
+.ImageOverlay {
+  cursor: pointer;
+  position: absolute;
+  margin-top: 7vh;
+  top: 0;
+  left: 0;
+  width: 230px;
+  height: 72%;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: background-color 0.5s ease, opacity 0.5s ease;
+}
+.ImageOverlay:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 1;
 }
 .Footer {
   background-color: rgb(185, 219, 190);

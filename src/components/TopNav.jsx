@@ -26,16 +26,18 @@ export function TopNav({ token, userId }) {
         Account
       </a>
 
-      <Link className="TopNavLinks" to="/">
-        Cart
-      </Link>
       <Link className="TopNavLinks" to="/login">
         LogIn
       </Link>
       <Link className="TopNavLinks" to="/Register">
         Register
       </Link>
-
+      <Link className="TopNavLinks" to="/">
+        <img
+          className="CartImageIcon"
+          src="https://imagizer.imageshack.com/img924/4575/QZpV8d.png"
+        />
+      </Link>
       {/* need to find out how to search */}
       <form className="searchBarForm">
         <img
