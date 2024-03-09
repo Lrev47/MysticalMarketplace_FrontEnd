@@ -1,31 +1,37 @@
 import { useGetAllUsersQuery } from "../StoreApi/index";
+import React from "react";
 
-export function DisplayUsers() {
+export function DisplayUsers({ setUserName, setPassword }) {
   const { data, error, isLoading } = useGetAllUsersQuery();
-  console.log(data);
+
+  const handleClick = (user) => {
+    setUserName(user.username);
+    setPassword(user.password);
+  };
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>error fetching users.</p>;
+  console.log(data);
 
   return (
-    <div className="selectUserContainer">
-      {data &&
-        data.map((user) => (
+    <>
+      <h2 className="selectUserheading"> Select User</h2>
+      <div className="selectUserContainer">
+        {data.map((user) => (
           <div
-            onClick={() => handleClick(user.id)}
+            onClick={() => handleClick(user)}
             className="UserContainer"
             key={user.id}
           >
-            <p>{user.username}</p>
             <img
               className="selectUserImage"
               src={user.userImageUrl}
               alt={user.username}
             />
-            <div className="UserImageOverlay">{user.name}</div>
+            <div className="UserImageOverlay">{user.username}</div>
           </div>
         ))}
-    </div>
+      </div>
+    </>
   );
 }
-
 export default DisplayUsers;

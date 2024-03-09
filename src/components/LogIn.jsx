@@ -3,24 +3,22 @@ import { useLoginUserMutation } from "../StoreApi/index.js";
 import { useNavigate } from "react-router-dom";
 import DisplayUsers from "./SelectUser.jsx";
 
-export function LogInUser({ setToken, setUserName }) {
+export function LogInUser({ setToken }) {
   const navigate = useNavigate();
+
   const [loginUser] = useLoginUserMutation();
-  const [loginUserName, setLoginUserName] = useState("johnd");
-  const [password, setPassword] = useState("m38rmF$");
+  const [password, setPassword] = useState("");
+  const [userName, setUserName] = useState("");
 
   async function submitLogIn(event) {
     event.preventDefault();
     console.log("Submit Pressed");
     try {
       const user = {
-        username: loginUserName,
+        username: userName,
         password: password,
       };
 
-      console.log("Login Users Data: ", user);
-      console.log("User Name:", user.username);
-      setUserName(user.username);
       const result = await loginUser(user).unwrap();
       console.log("Login Response from API:", result);
       setToken(result.token);
@@ -37,18 +35,16 @@ export function LogInUser({ setToken, setUserName }) {
               User Name:
               <input
                 className="LoginInput"
-                // placeholder="johnd"
-                value="johnd"
-                onChange={(e) => setLoginUserName(e.target.value)}
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
               ></input>
             </label>
             <label className="LoginFormLabel">
               Password:
               <input
                 className="LoginInput"
-                // placeholder="m38rmF$"
                 type="password"
-                value="m38rmF$"
+                value={password}
                 onChange={(e) => setPassword(e.target.value)}
               ></input>
             </label>
@@ -62,7 +58,7 @@ export function LogInUser({ setToken, setUserName }) {
       </div>
 
       <div className="SelectUserContainer">
-        <DisplayUsers />
+        <DisplayUsers setPassword={setPassword} setUserName={setUserName} />
       </div>
     </>
   );
