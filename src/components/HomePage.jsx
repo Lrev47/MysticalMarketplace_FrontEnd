@@ -32,7 +32,11 @@ const HomePage = () => {
       <div className="HomePageProductsContainer">
         {data &&
           data.map((product) => (
-            <div className="ProductContainer" key={product.id}>
+            <div
+              onClick={() => handleClick(product.id)}
+              className="ProductContainer"
+              key={product.id}
+            >
               <img
                 className="HomePageProductImage"
                 src={product.imageUrl}
