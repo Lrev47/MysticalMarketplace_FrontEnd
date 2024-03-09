@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLoginUserMutation } from "../StoreApi/index.js";
 import { useNavigate } from "react-router-dom";
+import DisplayUsers from "./SelectUser.jsx";
 
 export function LogInUser({ setToken, setUserName }) {
   const navigate = useNavigate();
@@ -29,12 +30,13 @@ export function LogInUser({ setToken, setUserName }) {
   }
   return (
     <>
-      <div className="Container">
+      <div className="LogInContainer">
         <form onSubmit={submitLogIn}>
           <div className="LogInFormWrapper">
             <label className="LoginFormLabel">
               User Name:
               <input
+                className="LoginInput"
                 // placeholder="johnd"
                 value="johnd"
                 onChange={(e) => setLoginUserName(e.target.value)}
@@ -43,17 +45,24 @@ export function LogInUser({ setToken, setUserName }) {
             <label className="LoginFormLabel">
               Password:
               <input
+                className="LoginInput"
                 // placeholder="m38rmF$"
                 type="password"
                 value="m38rmF$"
                 onChange={(e) => setPassword(e.target.value)}
               ></input>
             </label>
+            <label>
+              <button className="LogInSubmitbutton" type="submit">
+                Submit
+              </button>
+            </label>
           </div>
-          <label className="LogInbutton">
-            <button type="submit">Submit</button>
-          </label>
         </form>
+      </div>
+
+      <div className="SelectUserContainer">
+        <DisplayUsers />
       </div>
     </>
   );

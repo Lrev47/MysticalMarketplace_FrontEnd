@@ -3,6 +3,7 @@ import { useGetSingleProductQuery } from "../StoreApi/index.js";
 import { useGetAllProductsQuery } from "../StoreApi";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ProductDisplay from "./ProductDisplay";
 
 const SingleProduct = () => {
   const { productId } = useParams();
@@ -76,7 +77,8 @@ const SingleProduct = () => {
           </p>
           <div className="SingleProductLineOne"></div>
           <div className="SingleProductPriceandButtonContainer">
-            <p className="SingleProductPrice">${productDetails.price}.00</p>
+            {/* HOW DO I MAKE MONEY HAVE 2 DECIMAL PLACES */}
+            <p className="SingleProductPrice">${productDetails.price}</p>
             <button className="SingleProductCartButton">Add to Cart</button>
           </div>
 
@@ -114,8 +116,10 @@ const SingleProduct = () => {
                 <div className="SimilarProductImageOverlay">{product.name}</div>
               </div>
             ))}
-          {/* {productId && <SingleProduct productId={productId} />} */}
         </div>
+      </div>
+      <div className="ProductDisplayContainerTwo">
+        <ProductDisplay />
       </div>
     </>
   );

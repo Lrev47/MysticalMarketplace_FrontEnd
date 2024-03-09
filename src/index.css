@@ -81,17 +81,26 @@ html {
   width: 500px;
   margin-top: 90px;
 }
+.displayImage:hover {
+  cursor: pointer;
+}
 
 .ProductDisplayInfo {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 500px;
+  width: 900px;
   gap: 200px;
   text-align: justify;
 }
-
+.ProductDisplayHeader {
+  font-size: 50px;
+}
+.ProductDisplayDescription {
+  font-size: 35px;
+  width: 750px;
+}
 /* PRODUCT DISPLAY */
 
 /* HOME PAGE */
@@ -227,6 +236,16 @@ html {
 .SingleProductQuantity {
   font-size: 25px;
 }
+.ProductDisplayContainerTwo {
+  background-color: rgb(185, 219, 190);
+  width: 70vw;
+  margin-top: 200px;
+  height: 700px;
+  margin-left: 13%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
 /* END SINGLE PRODUCT PAGE */
 /* SIMILAR PRODUCT SECTION */
 .SimilarProductsContainer {
@@ -285,3 +304,56 @@ html {
 }
 
 /* END SIMILAR PRODUCT SECTION */
+/* LOGIN PAGE */
+.LogInContainer {
+  background-color: rgb(185, 219, 190);
+  width: 70vw;
+  height: 700px;
+  margin-left: 13%;
+  margin-top: 15vh;
+  position: relative;
+}
+.LogInFormWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70vw;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.LoginFormLabel {
+  font-size: 30px;
+}
+.LoginInput {
+  font-size: 20px;
+}
+.LogInSubmitbutton {
+  font-size: 25px;
+}
+.SelectUserContainer {
+  background-color: rgb(185, 219, 190);
+  width: 70vw;
+  height: 700px;
+  margin-left: 13%;
+  margin-top: 15vh;
+}
+.UserContainer {
+  width: fit-content;
+  margin-left: 4.25vw;
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+.selectUserImage {
+  width: 200px;
+  margin-top: 7vh;
+  z-index: 2;
+}
+.selectUserImage:hover {
+  cursor: pointer;
+}
+/* END LOGIN PAGE */

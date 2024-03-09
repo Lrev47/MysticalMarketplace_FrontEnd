@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { useGetAllProductsQuery } from "../StoreApi";
+import { useNavigate } from "react-router-dom";
 
 const ProductDisplay = () => {
   const [productIndex, setProductIndex] = useState(0);
   const [randomProducts, setRandomProducts] = useState([]);
   const { data: products, error, isLoading } = useGetAllProductsQuery();
+  const navigate = useNavigate();
 
   // Function to shuffle an array and pick the first 20 elements
   const pickRandomProducts = (productsArray, numProducts = 20) => {
@@ -29,6 +31,11 @@ const ProductDisplay = () => {
     return () => clearInterval(intervalId); // Cleanup interval on component unmount
   }, [randomProducts]);
 
+  const handleClick = (productId) => {
+    navigate(`/products/${productId}`);
+    console.log("You Clicked Product Number ", productId);
+  };
+
   if (isLoading || !randomProducts.length) return <p>Loading...</p>;
   if (error) return <p>Error fetching products.</p>;
 
@@ -36,13 +43,18 @@ const ProductDisplay = () => {
     <div className="ProductDisplayContainer">
       <div className="ProductDisplayImage">
         <img
+          onClick={() => handleClick(randomProducts[productIndex].id)}
           className="displayImage"
           src={randomProducts[productIndex].imageUrl}
         />
       </div>
       <div className="ProductDisplayInfo">
-        <h2>{randomProducts[productIndex].name}</h2>
-        <p>{randomProducts[productIndex].description}</p>
+        <h2 className="ProductDisplayHeader">
+          {randomProducts[productIndex].name}
+        </h2>
+        <p className="ProductDisplayDescription">
+          {randomProducts[productIndex].description}
+        </p>
       </div>
     </div>
   );
