@@ -7,9 +7,17 @@ const CategoryLinks = () => {
   const navigate = useNavigate();
   const { data, error, isLoading } = useGetAllProductsQuery();
   const [categoryNames, setcategoryNames] = useState([]);
+  const [category, setCategory] = useState("");
 
   console.log("THE ORIGINAL DATA", data);
 
+  const handleClick = (category) => {
+    setCategory(category);
+    navigate(`/Categories/${category}`);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    console.log("You Clicked Category: ", category);
+  };
   useEffect(() => {
     if (data) {
       const categories = data.map((product) => product.category);
@@ -56,6 +64,7 @@ const CategoryLinks = () => {
       <div className="CategoryDisplayContainer">
         {categoryNames.map((category, index) => (
           <div
+            onClick={() => handleClick(category)}
             key={index}
             //Didnt know how to accomplish this so i asked chat gpt
             className="CategoryContainer"

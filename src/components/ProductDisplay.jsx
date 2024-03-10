@@ -33,6 +33,7 @@ const ProductDisplay = () => {
 
   const handleClick = (productId) => {
     navigate(`/products/${productId}`);
+    window.scrollTo({ top: 0, behavior: "smooth" });
     console.log("You Clicked Product Number ", productId);
   };
 

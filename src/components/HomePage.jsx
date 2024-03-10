@@ -12,6 +12,7 @@ const HomePage = () => {
 
   const handleClick = (productId) => {
     navigate(`/products/${productId}`);
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setProductId(productId);
     console.log("You Clicked Product Number ", productId);
   };

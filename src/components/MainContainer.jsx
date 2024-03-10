@@ -4,6 +4,7 @@ import SingleProduct from "./singleProduct";
 import LogInUser from "./LogIn";
 import CategoryLinks from "./SelectCategories";
 import AccountPage from "./AccountPage";
+import CategoriesProductDisplay from "./categoryDisplay";
 
 function MainContainer({ token, setToken, userName, setUserName }) {
   return (
@@ -20,6 +21,10 @@ function MainContainer({ token, setToken, userName, setUserName }) {
           element={<LogInUser setUserName={setUserName} setToken={setToken} />}
         />
         <Route path="/Categories" element={<CategoryLinks />} />
+        <Route
+          path="/Categories/:category"
+          element={<CategoriesProductDisplay />}
+        />
       </Routes>
     </div>
   );

@@ -7,6 +7,7 @@ export function DisplayUsers({ setUserName, setPassword }) {
   const handleClick = (user) => {
     setUserName(user.username);
     setPassword(user.password);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>error fetching users.</p>;
