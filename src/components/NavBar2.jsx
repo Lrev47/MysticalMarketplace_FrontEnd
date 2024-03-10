@@ -32,8 +32,8 @@ export function TopNavTwo({ token, userId }) {
       <Link className="TopNavTwoLinks" to="/login">
         LogIn
       </Link>
-      <Link className="TopNavTwoLinks" to="/Register">
-        Register
+      <Link className="TopNavTwoLinks" to="/Categories">
+        Categories
       </Link>
     </div>
   );

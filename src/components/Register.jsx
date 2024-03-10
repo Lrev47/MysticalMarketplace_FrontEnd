@@ -133,5 +133,3 @@ export function RegisterForm({ setToken }) {
     </>
   );
 }
-
-export default RegisterForm;

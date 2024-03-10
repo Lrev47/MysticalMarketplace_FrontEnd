@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
 import SingleProduct from "./singleProduct";
 import LogInUser from "./LogIn";
-import RegisterForm from "./Register";
+import CategoryLinks from "./SelectCategories";
 import AccountPage from "./AccountPage";
 
 function MainContainer({ token, setToken, userName, setUserName }) {
@@ -19,10 +19,7 @@ function MainContainer({ token, setToken, userName, setUserName }) {
           path="/login"
           element={<LogInUser setUserName={setUserName} setToken={setToken} />}
         />
-        <Route
-          path="/Register"
-          element={<RegisterForm setToken={setToken} />}
-        />
+        <Route path="/Categories" element={<CategoryLinks />} />
       </Routes>
     </div>
   );
