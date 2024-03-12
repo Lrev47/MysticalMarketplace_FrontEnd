@@ -3,7 +3,7 @@ import { useLoginUserMutation } from "../StoreApi/index.js";
 import { useNavigate } from "react-router-dom";
 import DisplayUsers from "./SelectUser.jsx";
 
-export function LogInUser({ setToken }) {
+export function LogInUser({ setToken, setUserId }) {
   const navigate = useNavigate();
 
   const [loginUser] = useLoginUserMutation();
@@ -14,14 +14,13 @@ export function LogInUser({ setToken }) {
     event.preventDefault();
     console.log("Submit Pressed");
     try {
-      const user = {
-        username: userName,
-        password: password,
-      };
+      const user = { username: userName, password: password };
+      console.log(user);
 
       const result = await loginUser(user).unwrap();
       console.log("Login Response from API:", result);
       setToken(result.token);
+      setUserId(result.userId);
     } catch (error) {
       console.error("Error:", error);
     }

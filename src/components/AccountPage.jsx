@@ -1,53 +1,20 @@
 import { useNavigate } from "react-router-dom";
-import { useGetAllUsersQuery } from "../StoreApi";
-import { useEffect, useState } from "react";
+import { useGetUserByIdQuery } from "../StoreApi";
 
-export const AccountPage = ({ userName }) => {
+export const AccountPage = ({ token, userId }) => {
   const navigate = useNavigate();
-  const [currentUser, setCurrentUser] = useState(null);
-  const {
-    data: allUsersData,
-    error: allUsersError,
-    isLoading: allUsersLoading,
-  } = useGetAllUsersQuery();
+  const { data, error, isLoading } = useGetUserByIdQuery(userId, token);
 
-  useEffect(() => {
-    if (allUsersData && userName) {
-      const foundCurrentUser = allUsersData.find(
-        (user) => user.username === userName
-      );
-
-      console.log("Found currentUser:", foundCurrentUser);
-      console.log(foundCurrentUser.address?.city);
-      setCurrentUser(foundCurrentUser);
-    }
-  }, [allUsersData, userName]);
-
-  if (allUsersLoading) {
+  if (isLoading) {
     return <div>Loading..</div>;
   }
-  if (allUsersError) {
-    return <div>{allUsersError.message}</div>;
+  if (error) {
+    return <div>{error.message}</div>;
   }
-
+  console.log(data);
   return (
     <div className="singleProductContainer">
-      {currentUser ? (
-        <>
-          <p>City: {currentUser.address?.city}</p>
-          <p>Number: {currentUser.address?.number}</p>
-          <p>Street: {currentUser.address?.street}</p>
-          <p>Zipcode: {currentUser.address?.zipcode}</p>
-          <p>Email: {currentUser.email}</p>
-          <p>First Name: {currentUser.name?.firstname}</p>
-          <p>Last Name: {currentUser.name?.lastname}</p>
-          <p>Password: {currentUser.password}</p>
-          <p>Phone: {currentUser.phone}</p>
-          <p>Username: {currentUser.username}</p>
-        </>
-      ) : (
-        <p>User not found.</p>
-      )}
+      <h2>HELLO WORLD</h2>
     </div>
   );
 };

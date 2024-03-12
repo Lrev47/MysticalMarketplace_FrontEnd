@@ -9,14 +9,14 @@ const CategoryLinks = () => {
   const [categoryNames, setcategoryNames] = useState([]);
   const [category, setCategory] = useState("");
 
-  console.log("THE ORIGINAL DATA", data);
+  // console.log("THE ORIGINAL DATA", data);
 
   const handleClick = (category) => {
     setCategory(category);
     navigate(`/Categories/${category}`);
     window.scrollTo({ top: 0, behavior: "smooth" });
 
-    console.log("You Clicked Category: ", category);
+    // console.log("You Clicked Category: ", category);
   };
   useEffect(() => {
     if (data) {

@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 
 function App() {
   const [token, setToken] = useState(null);
-
+  const [userId, setUserId] = useState(null);
   const [userName, setUserName] = useState(null);
   return (
     <>
@@ -18,6 +18,8 @@ function App() {
         token={token}
         setUserName={setUserName}
         setToken={setToken}
+        userId={userId}
+        setUserId={setUserId}
       />
       <Footer />
     </>

@@ -11,7 +11,7 @@ export function DisplayUsers({ setUserName, setPassword }) {
   };
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>error fetching users.</p>;
-  console.log(data);
+  // console.log(data);
 
   return (
     <>

@@ -14,7 +14,7 @@ const HomePage = () => {
     navigate(`/products/${productId}`);
     window.scrollTo({ top: 0, behavior: "smooth" });
     setProductId(productId);
-    console.log("You Clicked Product Number ", productId);
+    // console.log("You Clicked Product Number ", productId);
   };
 
   if (isLoading) {
@@ -23,7 +23,7 @@ const HomePage = () => {
   if (error) {
     return <div>{error.message}</div>;
   }
-  console.log(data);
+  // console.log(data);
   return (
     <>
       <div className="ProductDisplayContainer">

@@ -1,4 +1,4 @@
-import { useGetUserCartQuery } from "./CartApi";
+import { useGetUserOrder } from "./OrderApi";
 import {
   useGetAllProductsQuery,
   useGetSingleProductQuery,
@@ -13,7 +13,7 @@ export {
   useGetAllProductsQuery,
   useGetSingleProductQuery,
   useLoginUserMutation,
-  useGetUserCartQuery,
+  useGetUserOrder,
   useGetUserByIdQuery,
   useGetAllUsersQuery,
 };

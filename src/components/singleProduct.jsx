@@ -57,7 +57,7 @@ const SingleProduct = () => {
     navigate(`/products/${productId}`);
     window.scrollTo({ top: 0, behavior: "smooth" });
     setProductId(productId);
-    console.log("You Clicked Product Number ", productId);
+    // console.log("You Clicked Product Number ", productId);
   };
 
   if (isLoading) {
@@ -66,7 +66,7 @@ const SingleProduct = () => {
   if (error) {
     return <div>{error.message}</div>;
   }
-  console.log("Product Details:", productDetails);
+  // console.log("Product Details:", productDetails);
   return (
     <>
       <div className="singleProductContainer">
