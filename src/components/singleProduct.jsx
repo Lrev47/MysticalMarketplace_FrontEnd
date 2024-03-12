@@ -56,8 +56,6 @@ const SingleProduct = () => {
   const handleClick = (productId) => {
     navigate(`/products/${productId}`);
     window.scrollTo({ top: 0, behavior: "smooth" });
-    setProductId(productId);
-    // console.log("You Clicked Product Number ", productId);
   };
 
   if (isLoading) {
@@ -79,7 +77,9 @@ const SingleProduct = () => {
           <div className="SingleProductLineOne"></div>
           <div className="SingleProductPriceandButtonContainer">
             {/* HOW DO I MAKE MONEY HAVE 2 DECIMAL PLACES */}
-            <p className="SingleProductPrice">${productDetails.price}</p>
+            <p className="SingleProductPrice">
+              ${productDetails.price.toFixed(2)}
+            </p>
             <button className="SingleProductCartButton">Add to Cart</button>
           </div>
 

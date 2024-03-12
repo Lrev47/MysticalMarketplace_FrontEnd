@@ -1,20 +1,21 @@
-import { useNavigate } from "react-router-dom";
 import { useGetUserByIdQuery } from "../StoreApi";
+import React from "react";
+import { useParams } from "react-router-dom";
 
-export const AccountPage = ({ token, userId }) => {
-  const navigate = useNavigate();
-  const { data, error, isLoading } = useGetUserByIdQuery(userId, token);
-
+export const AccountPage = ({ token }) => {
+  const { userId } = useParams();
+  const { data, error, isLoading } = useGetUserByIdQuery(userId, { token });
+  console.log(data);
   if (isLoading) {
     return <div>Loading..</div>;
   }
   if (error) {
     return <div>{error.message}</div>;
   }
-  console.log(data);
+
   return (
     <div className="singleProductContainer">
-      <h2>HELLO WORLD</h2>
+      <h2>test</h2>
     </div>
   );
 };

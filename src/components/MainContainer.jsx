@@ -20,7 +20,7 @@ function MainContainer({
         <Route path="/" element={<HomePage />} />
         <Route path="/products/:productId" element={<SingleProduct />} />
         <Route
-          path="/Account"
+          path="/Account/:userId"
           element={
             <AccountPage userId={userId} userName={userName} token={token} />
           }
@@ -29,6 +29,7 @@ function MainContainer({
           path="/login"
           element={
             <LogInUser
+              userId={userId}
               setUserName={setUserName}
               setToken={setToken}
               setUserId={setUserId}

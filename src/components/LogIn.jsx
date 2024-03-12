@@ -3,7 +3,7 @@ import { useLoginUserMutation } from "../StoreApi/index.js";
 import { useNavigate } from "react-router-dom";
 import DisplayUsers from "./SelectUser.jsx";
 
-export function LogInUser({ setToken, setUserId }) {
+export function LogInUser({ setToken, setUserId, userId }) {
   const navigate = useNavigate();
 
   const [loginUser] = useLoginUserMutation();
@@ -20,7 +20,12 @@ export function LogInUser({ setToken, setUserId }) {
       const result = await loginUser(user).unwrap();
       console.log("Login Response from API:", result);
       setToken(result.token);
-      setUserId(result.userId);
+
+      if (result.userId) {
+        setUserId(result.userId);
+        navigate(`/Account/${result.userId}`);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     } catch (error) {
       console.error("Error:", error);
     }
