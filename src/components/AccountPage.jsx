@@ -18,9 +18,36 @@ export const AccountPage = ({ token }) => {
   }
 
   return (
-    <div className="singleProductContainer">
-      <h2>{data.username}</h2>
-    </div>
+    <>
+      <div className="UserInfoContainer">
+        <img className="AccountImage" src={data.userImageUrl} />
+        <div className="UserInfo">
+          <h2 className="UserInfoHeader">
+            Welcome {data.firstName} {data.lastName}!
+          </h2>
+          <p></p>
+          <p>Email: {data.email}</p>
+          <p>Current Munny: ${data.moneyNum.toFixed(2)}</p>
+          <p>Favrotie Item: {data.favoriteProduct}</p>
+        </div>
+      </div>
+
+      <div className="UsernameAndPasswordContainer">
+        <p>Username: {data.username}</p>
+        Hover over to see password below.
+        <p className="userpassword">{data.password}</p>
+      </div>
+      <div className="AddressContainer">
+        <p>Address: {data.address}</p>
+        <p>City: {data.city}</p>
+        <p> State: {data.state}</p>
+        <p>Zipcode: {data.zipcode}</p>
+      </div>
+      <div className="ViewOrderHistoryContainer">
+        <p>View Order History button</p>
+      </div>
+      <div className="AddMunnyToAccountContainer">Add Munny to Account</div>
+    </>
   );
 };
 

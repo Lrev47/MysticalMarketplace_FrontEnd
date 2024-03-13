@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <div className="Footer">
       <div className="WarningLabel">
-        <p>
+        <p className="WarningLabelText">
           Engaging with our wares could lead to bouts of uncontrollable
           levitation, unexpected temporal displacement, or the sudden appearance
           of mythical creatures in your living room. Those seeking wisdom or
