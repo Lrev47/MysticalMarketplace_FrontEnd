@@ -28,7 +28,7 @@ export const UserApi = createApi({
       }),
     }),
     getUserById: builder.query({
-      query: (userId, token) => ({
+      query: ({ userId, token }) => ({
         url: `/users/${userId}`,
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },

@@ -4,7 +4,11 @@ import { useParams } from "react-router-dom";
 
 export const AccountPage = ({ token }) => {
   const { userId } = useParams();
-  const { data, error, isLoading } = useGetUserByIdQuery(userId, { token });
+  console.log("THE USER ID IS", userId);
+  console.log(token);
+
+  const { data, error, isLoading } = useGetUserByIdQuery({ userId, token });
+  console.log({ data, error, isLoading });
   console.log(data);
   if (isLoading) {
     return <div>Loading..</div>;
@@ -15,7 +19,7 @@ export const AccountPage = ({ token }) => {
 
   return (
     <div className="singleProductContainer">
-      <h2>test</h2>
+      <h2>{data.username}</h2>
     </div>
   );
 };
