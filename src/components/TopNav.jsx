@@ -8,7 +8,7 @@ export function TopNav({ token, userId }) {
     if (!token) {
       navigate("/login");
     } else {
-      navigate(`/Account`);
+      navigate(`/Account/${userId}`);
     }
   };
 

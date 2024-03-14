@@ -11,7 +11,7 @@ function App() {
   const [userName, setUserName] = useState(null);
   return (
     <>
-      <TopNav token={token} />
+      <TopNav token={token} userId={userId} />
       <TopNavTwo token={token} />
       <MainContainer
         userName={userName}
