@@ -32,7 +32,7 @@ export function TopNav({ token, userId }) {
       <Link className="TopNavLinks" to="/Register">
         Register
       </Link>
-      <Link className="TopNavLinks" to="/">
+      <Link className="TopNavLinks" to="/Cart">
         <img
           className="CartImageIcon"
           src="https://imagizer.imageshack.com/img924/4575/QZpV8d.png"

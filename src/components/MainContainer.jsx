@@ -5,6 +5,7 @@ import LogInUser from "./LogIn";
 import CategoryLinks from "./SelectCategories";
 import AccountPage from "./AccountPage";
 import CategoriesProductDisplay from "./categoryDisplay";
+import CartPage from "./Cart";
 
 function MainContainer({
   token,
@@ -36,6 +37,9 @@ function MainContainer({
             />
           }
         />
+
+        <Route path="/Cart" element={<CartPage />} />
+
         <Route path="/Categories" element={<CategoryLinks />} />
         <Route
           path="/Categories/:category"

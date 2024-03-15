@@ -53,6 +53,8 @@ const SingleProduct = () => {
     return shuffled.slice(0, numProducts);
   };
 
+  const AddToCart = () => {};
+
   const handleClick = (productId) => {
     navigate(`/products/${productId}`);
     window.scrollTo({ top: 0, behavior: "smooth" });
