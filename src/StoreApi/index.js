@@ -7,6 +7,7 @@ import {
   useAddOrderItemMutation,
   useGetAllOrderItemsQuery,
   useUpdateOrderItemQuantityMutation,
+  useGetOrderItemsByOrderId,
 } from "./OrderItemApi";
 import {
   useGetAllProductsQuery,
@@ -23,6 +24,7 @@ export {
   useGetSingleProductQuery,
   useLoginUserMutation,
   useGetCurrentOrderQuery,
+  useGetOrderItemsByOrderId,
   // useGetUserOrder,
   useGetUserByIdQuery,
   useGetAllUsersQuery,

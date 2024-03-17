@@ -1,6 +1,7 @@
 import { useGetUserByIdQuery } from "../StoreApi";
 import React from "react";
 import { useParams } from "react-router-dom";
+import AddMoneyToAccount from "./AddMoneytoAccount";
 
 export const AccountPage = ({ token }) => {
   const { userId } = useParams();
@@ -44,9 +45,13 @@ export const AccountPage = ({ token }) => {
         <p>Zipcode: {data.zipcode}</p>
       </div>
       <div className="ViewOrderHistoryContainer">
-        <p>View Order History button</p>
+        <button>
+          <p>View Order History button </p>
+        </button>
       </div>
-      <div className="AddMunnyToAccountContainer">Add Munny to Account</div>
+      <div className="AddMunnyToAccountContainer">
+        <AddMoneyToAccount />
+      </div>
     </>
   );
 };

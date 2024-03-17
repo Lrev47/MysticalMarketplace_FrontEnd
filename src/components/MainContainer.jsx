@@ -14,6 +14,8 @@ function MainContainer({
   setUserName,
   userId,
   setUserId,
+  orderId,
+  setOrderId,
 }) {
   return (
     <div>
@@ -21,12 +23,23 @@ function MainContainer({
         <Route path="/" element={<HomePage />} />
         <Route
           path="/products/:productId"
-          element={<SingleProduct userId={userId} token={token} />}
+          element={
+            <SingleProduct
+              userId={userId}
+              token={token}
+              setOrderId={setOrderId}
+            />
+          }
         />
         <Route
           path="/Account/:userId"
           element={
-            <AccountPage userId={userId} userName={userName} token={token} />
+            <AccountPage
+              userId={userId}
+              userName={userName}
+              token={token}
+              orderId={orderId}
+            />
           }
         />
         <Route

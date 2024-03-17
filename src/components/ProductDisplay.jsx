@@ -8,7 +8,6 @@ const ProductDisplay = () => {
   const { data: products, error, isLoading } = useGetAllProductsQuery();
   const navigate = useNavigate();
 
-  // Function to shuffle an array and pick the first 20 elements
   const pickRandomProducts = (productsArray, numProducts = 20) => {
     const shuffled = [...productsArray].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, numProducts);
@@ -26,15 +25,14 @@ const ProductDisplay = () => {
       setProductIndex((prevIndex) =>
         prevIndex === randomProducts.length - 1 ? 0 : prevIndex + 1
       );
-    }, 10000); // Change product every 10 seconds
+    }, 10000);
 
-    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+    return () => clearInterval(intervalId);
   }, [randomProducts]);
 
   const handleClick = (productId) => {
     navigate(`/products/${productId}`);
     window.scrollTo({ top: 0, behavior: "smooth" });
-    // console.log("You Clicked Product Number ", productId);
   };
 
   if (isLoading || !randomProducts.length) return <p>Loading...</p>;
