@@ -549,7 +549,7 @@ html {
   align-items: center;
   font-size: 30px;
 }
-.AddMunnyToAccountContainer {
+.AddMoneyToAccountContainer {
   margin-top: 100px;
   background-color: rgb(185, 219, 190);
   width: 70vw;
@@ -560,6 +560,31 @@ html {
   justify-content: center;
   align-items: center;
   font-size: 30px;
+}
+.MoneyInputContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding-bottom: 15px;
+}
+
+.MoneyInput {
+  width: 100px;
+}
+
+.MoneyInput {
+  padding: 10px 20px;
+  font-size: 20px;
+  text-align: center;
+}
+.AddMoneyButton {
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  font-size: 15px;
+}
+.AddMoneyButton:hover {
+  cursor: pointer;
 }
 .AddressContainer {
   margin-top: 100px;
