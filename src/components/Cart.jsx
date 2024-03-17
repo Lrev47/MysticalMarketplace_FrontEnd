@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useGetAllProductsQuery } from "../StoreApi";
 import {
+  useGetAllProductsQuery,
+  useGetAllOrdersQuery,
   useGetAllOrderItemsQuery,
   useUpdateOrderItemQuantityMutation,
-} from "../StoreApi/OrderItemApi";
+} from "../StoreApi";
 
-export const CartPage = () => {
+export const CartPage = ({ token, userId }) => {
+  console.log("YOUR TOKEN IS", token);
+  console.log("YOUR UserID IS", userId);
+
   const {
     data: ProductData,
     error: ProductError,
@@ -13,41 +17,118 @@ export const CartPage = () => {
   } = useGetAllProductsQuery();
 
   const {
-    data: orderData,
-    error: orderError,
-    isLoading: orderLoading,
+    data: allOrdersData,
+    error: ordersError,
+    isLoading: ordersLoading,
+  } = useGetAllOrdersQuery({ token: token });
+
+  const {
+    data: orderItemsData,
+    error: orderItemsError,
+    isLoading: orderItemsLoading,
   } = useGetAllOrderItemsQuery();
 
+  console.log({ ProductDataType: typeof ProductData });
+  console.log({ allOrdersDataType: typeof allOrdersData });
+  console.log({ orderItemsDataType: typeof orderItemsData });
+
   console.log({ ProductData, ProductError, productLoading });
-  console.log({ orderData, orderError, orderLoading });
+  console.log({ allOrdersData, ordersError, ordersLoading });
+  console.log({ orderItemsData, orderItemsError, orderItemsLoading });
 
-  const filterByOrderId = orderData?.filter((item) => item.orderId === 3);
-  console.log(filterByOrderId);
-
-  const productIdsAry = filterByOrderId?.map((item) => item.productId);
-  console.log(productIdsAry);
+  const [updateOrderItemQuantity] = useUpdateOrderItemQuantityMutation();
 
   const [productDisplayArray, setProductDisplayArray] = useState([]);
 
   useEffect(() => {
-    if (ProductData && orderData) {
-      const productIdsAry = orderData
-        ?.filter((item) => item.orderId === 3)
-        .map((item) => item.productId);
+    console.log("USE EFFECT TRIGGERED");
+    //IF ALL THE DATA LOADS
+    if (ProductData && allOrdersData && orderItemsData) {
+      console.log("ALL CONDITIONS MET");
 
-      const matchProductToOrder = ProductData.filter((product) =>
-        productIdsAry.includes(product.id)
+      //GET ALL ORDERS FROM USER BY USERID THAT WAS PASSED AS PROP, STATUS HAS TO BE PENDING
+      console.log("ALL ORDERS DATA BEFOR FILTER", allOrdersData);
+      const userOrders = allOrdersData.filter(
+        (order) => order.userId === userId && order.status == "pending"
       );
+      console.log("ALL ORDERS DATA AFTER FILTER", userOrders);
+      //NOW I A M GRABBING THE ORDER ID NUMBER FROM THE USERORDER JUST MADE -- CAN I PREFORM ARRAY METHODS ON AN ARRAY OF 1 ITEM?
+
+      const userOrderIds = userOrders.map((order) => order.id);
+      console.log("USER ORDER IDS", userOrderIds);
+      //NOW I AM GOING TO GET ALL ORDERITEMS WITH THIS ORDERID
+      const filteredOrderItems = orderItemsData.filter((orderItem) =>
+        userOrderIds.includes(orderItem.orderId)
+      );
+      console.log("FILTERED ORDER ITEMS", filteredOrderItems);
+
+      //NOW I AM GOING TO GET ALL PROFUCTS WITH FROM THE ORDERITEMS
+      const matchProductToOrder = ProductData.filter((product) =>
+        filteredOrderItems.some(
+          (orderItem) => orderItem.productId === product.id
+        )
+      ).map((product) => {
+        const orderItem = filteredOrderItems.find(
+          (orderItem) => orderItem.productId === product.id
+        );
+        return {
+          ...product,
+
+          quantity: orderItem ? orderItem.quantity : 0,
+          orderItemId: orderItem ? orderItem.id : null,
+        };
+      });
+
       console.log("THIS SHOULD SHOW THE FINAL ARRAY", matchProductToOrder);
       setProductDisplayArray(matchProductToOrder);
     }
-  }, [ProductData, orderData]);
+  }, [userId, ProductData, allOrdersData, orderItemsData]);
 
-  if (productLoading || orderLoading) {
+  const updateQuantity = (productId, NewQuantity) => {
+    const productInCart = productDisplayArray.find(
+      (product) => product.id === productId
+    );
+
+    if (NewQuantity < 1) {
+      console.log("To remove item click delte");
+      return;
+    }
+
+    const product = ProductData.find((product) => product.id === productId);
+    if (!product || NewQuantity > product.quantity) {
+      console.log("Not enough in stock");
+      return;
+    }
+
+    updateOrderItemQuantity({
+      orderItemId: productInCart.orderItemId,
+      quantity: NewQuantity,
+      token: token,
+    })
+      .unwrap()
+      .then(() => {
+        const updatedDisplayArray = productDisplayArray.map((product) =>
+          product.id === productId
+            ? { ...product, quantity: NewQuantity }
+            : product
+        );
+        setProductDisplayArray(updatedDisplayArray);
+      })
+
+      .catch((error) => {
+        console.error("update not working", error);
+      });
+  };
+  if (productLoading || ordersLoading || orderItemsLoading) {
     return <div>Loading ..</div>;
   }
-  if (ProductError || orderError) {
-    return <div>{error.message}</div>;
+
+  if (ProductError || ordersError || orderItemsError) {
+    const errorMessage = [ProductError, ordersError, orderItemsError]
+      .filter(Boolean)
+      .map((e) => e.message)
+      .join(", ");
+    return <div>{errorMessage}</div>;
   }
 
   return (
@@ -65,7 +146,18 @@ export const CartPage = () => {
           </div>
           <div className="CartItemImageAndQuantDiv">
             <img className="CartItemImage" src={product.imageUrl} />
+            <button
+              onClick={() => updateQuantity(product.id, product.quantity - 1)}
+            >
+              -
+            </button>
+
             <p>Quantity: {product.quantity}</p>
+            <button
+              onClick={() => updateQuantity(product.id, product.quantity + 1)}
+            >
+              +
+            </button>
           </div>
         </div>
       ))}

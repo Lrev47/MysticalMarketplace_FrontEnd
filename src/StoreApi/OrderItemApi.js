@@ -26,7 +26,6 @@ export const OrderItemApi = createApi({
         method: "PATCH",
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
         },
         body: {
           quantity,

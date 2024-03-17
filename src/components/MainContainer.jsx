@@ -19,7 +19,10 @@ function MainContainer({
     <div>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/products/:productId" element={<SingleProduct />} />
+        <Route
+          path="/products/:productId"
+          element={<SingleProduct userId={userId} token={token} />}
+        />
         <Route
           path="/Account/:userId"
           element={
@@ -38,7 +41,10 @@ function MainContainer({
           }
         />
 
-        <Route path="/Cart" element={<CartPage />} />
+        <Route
+          path="/Cart"
+          element={<CartPage userId={userId} token={token} />}
+        />
 
         <Route path="/Categories" element={<CategoryLinks />} />
         <Route

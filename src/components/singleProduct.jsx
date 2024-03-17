@@ -1,29 +1,44 @@
-import { useParams } from "react-router-dom";
-import { useGetSingleProductQuery } from "../StoreApi/index.js";
-import { useGetAllProductsQuery } from "../StoreApi";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import {
+  useAddOrderItemMutation,
+  useGetSingleProductQuery,
+  useGetAllProductsQuery,
+  useGetCurrentOrderQuery,
+} from "../StoreApi";
+
 import ProductDisplay from "./ProductDisplay";
 
-const SingleProduct = () => {
+const SingleProduct = ({ token, userId }) => {
   const { productId } = useParams();
   const navigate = useNavigate();
-  //IF I DONT NEED TO RENDER ALL PRODUCTS DO I NEED  allProductsError and allProductsAreLoading,
+
+  const [addOrderItem] = useAddOrderItemMutation();
   const {
     data: allProducts,
-    allProductsError,
-    allProductsAreLoading,
+    error: allProductsError,
+    isLoading: allProductsAreLoading,
   } = useGetAllProductsQuery();
 
   const {
     data: productDetails,
-    error,
-    isLoading,
+    error: productError,
+    isLoading: productIsLoading,
   } = useGetSingleProductQuery(productId);
+
+  const {
+    data: currentOrder,
+    error: currentOrderError,
+    isLoading: currentOrderIsLoading,
+  } = useGetCurrentOrderQuery({ token, userId });
 
   const [productCategory, setProductCategory] = useState("");
   const [similarProductsArray, setsimilarProductsArray] = useState([]);
   const [displayedProductsArray, setdisplayedProductsArray] = useState([]);
+
+  console.log("Product Details:", productDetails);
+  console.log("Current Order:", currentOrder);
+  console.log("Token and UserId:", token, userId);
 
   useEffect(() => {
     if (productDetails) {
@@ -52,21 +67,50 @@ const SingleProduct = () => {
     const shuffled = [...productsArray].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, numProducts);
   };
+  const addToCart = async () => {
+    console.log(currentOrder);
+    if (
+      !currentOrder ||
+      !productDetails ||
+      !currentOrder.id ||
+      !productDetails.id
+    ) {
+      console.error("Missing necessary order or product details.");
+      return;
+    }
 
-  const AddToCart = () => {};
+    try {
+      await addOrderItem({
+        orderId: currentOrder.id,
+        productId: productDetails.id,
+        quantity: 1,
+        price: productDetails.price,
+        token,
+      }).unwrap();
+      alert("product added!");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  console.log("Product ID:", productId);
 
   const handleClick = (productId) => {
     navigate(`/products/${productId}`);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  if (isLoading) {
+  if (allProductsAreLoading || productIsLoading || currentOrderIsLoading) {
     return <div>Loading...</div>;
   }
-  if (error) {
-    return <div>{error.message}</div>;
+  if (allProductsError || productError || currentOrderError) {
+    return (
+      <div>
+        {allProductsError?.message ||
+          productError?.message ||
+          currentOrderError?.message}
+      </div>
+    );
   }
-  // console.log("Product Details:", productDetails);
   return (
     <>
       <div className="singleProductContainer">
@@ -78,11 +122,12 @@ const SingleProduct = () => {
           </p>
           <div className="SingleProductLineOne"></div>
           <div className="SingleProductPriceandButtonContainer">
-            {/* HOW DO I MAKE MONEY HAVE 2 DECIMAL PLACES */}
             <p className="SingleProductPrice">
               ${productDetails.price.toFixed(2)}
             </p>
-            <button className="SingleProductCartButton">Add to Cart</button>
+            <button className="SingleProductCartButton" onClick={addToCart}>
+              Add to Cart
+            </button>
           </div>
 
           <p className="SingleProductDescription">
@@ -93,7 +138,6 @@ const SingleProduct = () => {
               {productDetails.inStock ? "In Stock" : "Out of Stock"}
             </p>
             <p className="SingleProductQuantity">
-              {" "}
               Only {productDetails.quantity} left
             </p>
           </div>

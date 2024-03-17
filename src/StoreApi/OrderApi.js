@@ -13,14 +13,27 @@ export const OrderApi = createApi({
         body: order,
       }),
     }),
-
+    getCurrentOrder: builder.query({
+      query: ({ token, userId }) => ({
+        url: `/Order/current/?userId=${userId}`,
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+    }),
     getAllOrders: builder.query({
-      query: () => ({
+      query: ({ token }) => ({
         url: "/Order",
         method: "GET",
+        headers: { Authorization: `Bearer ${token}` },
       }),
     }),
   }),
 });
 
-export const { useCreateOrderMutation, useGetAllOrdersQuery } = OrderApi;
+export const {
+  useCreateOrderMutation,
+  useGetAllOrdersQuery,
+  useGetCurrentOrderQuery,
+} = OrderApi;

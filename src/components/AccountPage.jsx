@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 export const AccountPage = ({ token }) => {
   const { userId } = useParams();
   console.log("THE USER ID IS", userId);
-  console.log(token);
+  console.log("TOKEN IS", token);
 
   const { data, error, isLoading } = useGetUserByIdQuery({ userId, token });
   console.log({ data, error, isLoading });

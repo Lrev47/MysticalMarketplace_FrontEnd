@@ -1,4 +1,8 @@
-import { useCreateOrderMutation, useGetAllOrdersQuery } from "./OrderApi";
+import {
+  useCreateOrderMutation,
+  useGetAllOrdersQuery,
+  useGetCurrentOrderQuery,
+} from "./OrderApi";
 import {
   useAddOrderItemMutation,
   useGetAllOrderItemsQuery,
@@ -18,6 +22,7 @@ export {
   useGetAllProductsQuery,
   useGetSingleProductQuery,
   useLoginUserMutation,
+  useGetCurrentOrderQuery,
   // useGetUserOrder,
   useGetUserByIdQuery,
   useGetAllUsersQuery,
