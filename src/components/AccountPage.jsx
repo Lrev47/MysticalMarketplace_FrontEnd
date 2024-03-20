@@ -1,16 +1,22 @@
 import { useGetUserByIdQuery } from "../StoreApi";
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import AddMoneyToAccount from "./AddMoneytoAccount";
 
 export const AccountPage = ({ token }) => {
   const { userId } = useParams();
   console.log("THE USER ID IS", userId);
   console.log("TOKEN IS", token);
-
+  const navigate = useNavigate();
   const { data, error, isLoading } = useGetUserByIdQuery({ userId, token });
   console.log({ data, error, isLoading });
   console.log(data);
+
+  const handleClick = () => {
+    navigate(`/orderHistory`);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   if (isLoading) {
     return <div>Loading..</div>;
   }
@@ -45,8 +51,11 @@ export const AccountPage = ({ token }) => {
         <p>Zipcode: {data.zipcode}</p>
       </div>
       <div className="ViewOrderHistoryContainer">
-        <button>
-          <p>View Order History button </p>
+        <button
+          onClick={() => handleClick()}
+          className="ViewOrderHistoryButton"
+        >
+          <p>View Order History</p>
         </button>
       </div>
       <div className="AddMunnyToAccountContainer">

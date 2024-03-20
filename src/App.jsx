@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <TopNav token={token} userId={userId} />
-      <TopNavTwo token={token} />
+      <TopNavTwo token={token} userId={userId} />
       <MainContainer
         orderId={orderId}
         setOrderId={setOrderId}

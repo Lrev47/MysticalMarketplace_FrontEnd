@@ -58,7 +58,10 @@ function MainContainer({
           element={<CategoriesProductDisplay />}
         />
 
-        <Route path="orderHistory" element={<OrderHistory orders={orders} />} />
+        <Route
+          path="/orderHistory"
+          element={<OrderHistory orders={orders} />}
+        />
       </Routes>
     </div>
   );

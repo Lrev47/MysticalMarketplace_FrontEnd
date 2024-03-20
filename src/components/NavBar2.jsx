@@ -8,7 +8,7 @@ export function TopNavTwo({ token, userId }) {
     if (!token) {
       navigate("/login");
     } else {
-      navigate(`/Account`);
+      navigate(`/Account/${userId}`);
     }
   };
 
@@ -26,7 +26,7 @@ export function TopNavTwo({ token, userId }) {
         Account
       </a>
 
-      <Link className="TopNavTwoLinks" to="/">
+      <Link className="TopNavTwoLinks" to="/Cart">
         Cart
       </Link>
       <Link className="TopNavTwoLinks" to="/login">
