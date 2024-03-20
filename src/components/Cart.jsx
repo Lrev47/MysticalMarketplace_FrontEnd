@@ -4,6 +4,8 @@ import {
   useUpdateOrderItemQuantityMutation,
   useGetOrderItemsByOrderIdQuery,
 } from "../StoreApi";
+import PurchaseandTotalSection from "./PurchaseOrderandTotal";
+
 //importing stuff
 export const CartPage = ({ token, userId, orders }) => {
   console.log("YOUR TOKEN IS", token);
@@ -145,6 +147,7 @@ export const CartPage = ({ token, userId, orders }) => {
           </div>
         </div>
       ))}
+      <PurchaseandTotalSection orders={orders} />
     </div>
   );
 };
