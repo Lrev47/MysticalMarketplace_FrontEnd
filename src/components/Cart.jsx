@@ -31,14 +31,7 @@ export const CartPage = ({ token, userId, orders }) => {
 
   const [updateOrderItemQuantity] = useUpdateOrderItemQuantityMutation();
 
-  // useEffect(() => {
-  //   const pendingOrder = orders.find((order) => order.status === "pending");
-  //   if (pendingOrder) {
-  //     getOrderItemsByOrderId(pendingOrder.id);
-  //   }
-  // }, [orders]);
   console.log("OrderItems before filter", orderItemsData);
-  console.log("Should only have 1 pending order", orders);
 
   useEffect(() => {
     if (orderItemsData && pendingOrder) {
@@ -70,11 +63,9 @@ export const CartPage = ({ token, userId, orders }) => {
     productDisplayArray
   );
   console.log({ ProductDataType: typeof ProductData });
-  // console.log({ allOrdersDataType: typeof allOrdersData });
   console.log({ orderItemsDataType: typeof orderItemsData });
   console.log("HERE ARE ALL THE ORDERS", orders);
   console.log({ ProductData, ProductError, productLoading });
-  // console.log({ allOrdersData, ordersError, ordersLoading });
   console.log({ orderItemsData, orderItemsError, orderItemsLoading });
 
   const updateQuantity = (productId, NewQuantity) => {

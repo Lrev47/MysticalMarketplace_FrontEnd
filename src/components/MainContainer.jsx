@@ -6,6 +6,7 @@ import CategoryLinks from "./SelectCategories";
 import AccountPage from "./AccountPage";
 import CategoriesProductDisplay from "./categoryDisplay";
 import CartPage from "./Cart";
+import OrderHistory from "./OrderHistoryPage";
 
 function MainContainer({
   token,
@@ -67,6 +68,8 @@ function MainContainer({
           path="/Categories/:category"
           element={<CategoriesProductDisplay />}
         />
+
+        <Route path="orderHistory" element={<OrderHistory orders={orders} />} />
       </Routes>
     </div>
   );

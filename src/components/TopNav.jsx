@@ -29,8 +29,8 @@ export function TopNav({ token, userId }) {
       <Link className="TopNavLinks" to="/login">
         LogIn
       </Link>
-      <Link className="TopNavLinks" to="/Register">
-        Register
+      <Link className="TopNavLinks" to="/orderHistory">
+        Order History
       </Link>
       <Link className="TopNavLinks" to="/Cart">
         <img
