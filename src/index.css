@@ -615,3 +615,26 @@ html {
   text-align: center;
 }
 /* END CART PAGE */
+
+/* ORDER HISTORY PAGE */
+
+.OrderHistoryContainer {
+  /* background-color: rgb(185, 219, 190); */
+  width: 70vw;
+  height: fit-content;
+  margin-left: 13%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+}
+.OrderContainer {
+  background-color: rgb(185, 219, 190);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.viewDetailsButton {
+  width: 300px;
+}
+/* END ORDER HISTORY PAGE */
