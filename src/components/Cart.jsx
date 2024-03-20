@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from "react";
 import {
   useGetAllProductsQuery,
-  useGetAllOrdersQuery,
-  useGetAllOrderItemsQuery,
   useUpdateOrderItemQuantityMutation,
+  useGetOrderItemsByOrderIdQuery,
 } from "../StoreApi";
-
-export const CartPage = ({ token, userId }) => {
+//importing stuff
+export const CartPage = ({ token, userId, orders }) => {
   console.log("YOUR TOKEN IS", token);
   console.log("YOUR UserID IS", userId);
-
+  const [filteredOrderItems, setFilteredOrderItems] = useState([]);
+  //using useState to set the final array of products i will be displaying
+  const [productDisplayArray, setProductDisplayArray] = useState([]);
+  // i should only ever have 1 pending order made.
+  const pendingOrder = orders.find((order) => order.status === "pending");
+  console.log(
+    "THIS IS THE ORDER ID TO SEARCH FOR ORDER ITEMS",
+    pendingOrder.id
+  );
   const {
     data: ProductData,
     error: ProductError,
@@ -17,76 +24,62 @@ export const CartPage = ({ token, userId }) => {
   } = useGetAllProductsQuery();
 
   const {
-    data: allOrdersData,
-    error: ordersError,
-    isLoading: ordersLoading,
-  } = useGetAllOrdersQuery({ token: token });
-
-  const {
     data: orderItemsData,
-    error: orderItemsError,
     isLoading: orderItemsLoading,
-  } = useGetAllOrderItemsQuery();
-
-  console.log({ ProductDataType: typeof ProductData });
-  console.log({ allOrdersDataType: typeof allOrdersData });
-  console.log({ orderItemsDataType: typeof orderItemsData });
-
-  console.log({ ProductData, ProductError, productLoading });
-  console.log({ allOrdersData, ordersError, ordersLoading });
-  console.log({ orderItemsData, orderItemsError, orderItemsLoading });
+    error: orderItemsError,
+  } = useGetOrderItemsByOrderIdQuery(pendingOrder.id);
 
   const [updateOrderItemQuantity] = useUpdateOrderItemQuantityMutation();
 
-  const [productDisplayArray, setProductDisplayArray] = useState([]);
+  // useEffect(() => {
+  //   const pendingOrder = orders.find((order) => order.status === "pending");
+  //   if (pendingOrder) {
+  //     getOrderItemsByOrderId(pendingOrder.id);
+  //   }
+  // }, [orders]);
+  console.log("OrderItems before filter", orderItemsData);
+  console.log("Should only have 1 pending order", orders);
 
   useEffect(() => {
-    console.log("USE EFFECT TRIGGERED");
-    //IF ALL THE DATA LOADS
-    if (ProductData && allOrdersData && orderItemsData) {
-      console.log("ALL CONDITIONS MET");
-
-      //GET ALL ORDERS FROM USER BY USERID THAT WAS PASSED AS PROP, STATUS HAS TO BE PENDING
-      console.log("ALL ORDERS DATA BEFOR FILTER", allOrdersData);
-      const userOrders = allOrdersData.filter(
-        (order) => order.userId === userId && order.status == "pending"
+    if (orderItemsData && pendingOrder) {
+      const filteredItems = orderItemsData.filter(
+        (item) => item.orderId === pendingOrder.id
       );
-      console.log("ALL ORDERS DATA AFTER FILTER", userOrders);
-      //NOW I A M GRABBING THE ORDER ID NUMBER FROM THE USERORDER JUST MADE -- CAN I PREFORM ARRAY METHODS ON AN ARRAY OF 1 ITEM?
+      setFilteredOrderItems(filteredItems);
+    }
+  }, [orderItemsData, pendingOrder]);
 
-      const userOrderIds = userOrders.map((order) => order.id);
-      console.log("USER ORDER IDS", userOrderIds);
-      //NOW I AM GOING TO GET ALL ORDERITEMS WITH THIS ORDERID
-      const filteredOrderItems = orderItemsData.filter((orderItem) =>
-        userOrderIds.includes(orderItem.orderId)
-      );
-      console.log("FILTERED ORDER ITEMS", filteredOrderItems);
-
-      //NOW I AM GOING TO GET ALL PROFUCTS WITH FROM THE ORDERITEMS
-      const matchProductToOrder = ProductData.filter((product) =>
-        filteredOrderItems.some(
-          (orderItem) => orderItem.productId === product.id
-        )
-      ).map((product) => {
-        const orderItem = filteredOrderItems.find(
-          (orderItem) => orderItem.productId === product.id
+  useEffect(() => {
+    if (orderItemsData && ProductData && filteredOrderItems) {
+      const itemsToDisplay = filteredOrderItems.map((orderItem) => {
+        const productDetails = ProductData.find(
+          (product) => product.id === orderItem.productId
         );
-        return {
-          ...product,
 
-          quantity: orderItem ? orderItem.quantity : 0,
-          orderItemId: orderItem ? orderItem.id : null,
+        return {
+          ...orderItem,
+          ...productDetails,
+          quantity: orderItem.quantity,
         };
       });
-
-      console.log("THIS SHOULD SHOW THE FINAL ARRAY", matchProductToOrder);
-      setProductDisplayArray(matchProductToOrder);
+      setProductDisplayArray(itemsToDisplay);
     }
-  }, [userId, ProductData, allOrdersData, orderItemsData]);
+  }, [filteredOrderItems, ProductData]);
+  console.log(
+    "This should have all the products I am going to dispaly",
+    productDisplayArray
+  );
+  console.log({ ProductDataType: typeof ProductData });
+  // console.log({ allOrdersDataType: typeof allOrdersData });
+  console.log({ orderItemsDataType: typeof orderItemsData });
+  console.log("HERE ARE ALL THE ORDERS", orders);
+  console.log({ ProductData, ProductError, productLoading });
+  // console.log({ allOrdersData, ordersError, ordersLoading });
+  console.log({ orderItemsData, orderItemsError, orderItemsLoading });
 
   const updateQuantity = (productId, NewQuantity) => {
     const productInCart = productDisplayArray.find(
-      (product) => product.id === productId
+      (product) => product.orderId === productId
     );
 
     if (NewQuantity < 1) {
@@ -119,11 +112,11 @@ export const CartPage = ({ token, userId }) => {
         console.error("update not working", error);
       });
   };
-  if (productLoading || ordersLoading || orderItemsLoading) {
+  if (productLoading || orderItemsLoading) {
     return <div>Loading ..</div>;
   }
 
-  if (ProductError || ordersError || orderItemsError) {
+  if (ProductError || orderItemsError) {
     const errorMessage = [ProductError, ordersError, orderItemsError]
       .filter(Boolean)
       .map((e) => e.message)
@@ -133,8 +126,8 @@ export const CartPage = ({ token, userId }) => {
 
   return (
     <div className="CartContainer">
-      {productDisplayArray.map((product) => (
-        <div key={product.id} className="CartItemContainer">
+      {productDisplayArray.map((product, index) => (
+        <div key={product.id || index} className="CartItemContainer">
           <div className="CartItemInfoDiv">
             <p>{product.name}</p>
             <p>Product Id: {product.id}</p>

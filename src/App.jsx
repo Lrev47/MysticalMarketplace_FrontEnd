@@ -10,6 +10,7 @@ function App() {
   const [userId, setUserId] = useState(null);
   const [userName, setUserName] = useState(null);
   const [orderId, setOrderId] = useState(null);
+  const [orders, setOrders] = useState([]);
   return (
     <>
       <TopNav token={token} userId={userId} />
@@ -17,6 +18,8 @@ function App() {
       <MainContainer
         orderId={orderId}
         setOrderId={setOrderId}
+        orders={orders}
+        setOrders={setOrders}
         userName={userName}
         token={token}
         setUserName={setUserName}

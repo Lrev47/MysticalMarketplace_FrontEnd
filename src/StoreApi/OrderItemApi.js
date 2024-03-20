@@ -47,5 +47,5 @@ export const {
   useAddOrderItemMutation,
   useGetAllOrderItemsQuery,
   useUpdateOrderItemQuantityMutation,
-  useGetOrderItemsByOrderId,
+  useGetOrderItemsByOrderIdQuery,
 } = OrderItemApi;

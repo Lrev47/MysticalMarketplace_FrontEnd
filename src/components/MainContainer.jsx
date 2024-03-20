@@ -16,6 +16,8 @@ function MainContainer({
   setUserId,
   orderId,
   setOrderId,
+  setOrders,
+  orders,
 }) {
   return (
     <div>
@@ -50,13 +52,14 @@ function MainContainer({
               setUserName={setUserName}
               setToken={setToken}
               setUserId={setUserId}
+              setOrders={setOrders}
             />
           }
         />
 
         <Route
           path="/Cart"
-          element={<CartPage userId={userId} token={token} />}
+          element={<CartPage orders={orders} userId={userId} token={token} />}
         />
 
         <Route path="/Categories" element={<CategoryLinks />} />
