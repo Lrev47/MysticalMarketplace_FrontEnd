@@ -118,37 +118,40 @@ export const CartPage = ({ token, userId, orders }) => {
   }
 
   return (
-    <div className="CartContainer">
-      {productDisplayArray.map((product, index) => (
-        <div key={product.id || index} className="CartItemContainer">
-          <div className="CartItemInfoDiv">
-            <p>{product.name}</p>
-            <p>Product Id: {product.id}</p>
-            <p>Category: {product.category}</p>
-            <p>Munny: ${product.price.toFixed(2)}</p>
-            <p>Rating: {product.rating}</p>
-            <p>{product.inStock ? "In Stock" : "Out of Stock"}</p>
-            <p>Description: {product.description}</p>
-          </div>
-          <div className="CartItemImageAndQuantDiv">
-            <img className="CartItemImage" src={product.imageUrl} />
-            <button
-              onClick={() => updateQuantity(product.id, product.quantity - 1)}
-            >
-              -
-            </button>
+    <>
+      <div className="CartContainer">
+        <PurchaseandTotalSection orders={orders} />
+        {productDisplayArray.map((product, index) => (
+          <div key={product.id || index} className="CartItemContainer">
+            <div className="CartItemInfoDiv">
+              <p>{product.name}</p>
+              <p>Product Id: {product.id}</p>
+              <p>Category: {product.category}</p>
+              <p>Munny: ${product.price.toFixed(2)}</p>
+              <p>Rating: {product.rating}</p>
+              <p>{product.inStock ? "In Stock" : "Out of Stock"}</p>
+              <p>Description: {product.description}</p>
+            </div>
+            <div className="CartItemImageAndQuantDiv">
+              <img className="CartItemImage" src={product.imageUrl} />
+              <button
+                onClick={() => updateQuantity(product.id, product.quantity - 1)}
+              >
+                -
+              </button>
 
-            <p>Quantity: {product.quantity}</p>
-            <button
-              onClick={() => updateQuantity(product.id, product.quantity + 1)}
-            >
-              +
-            </button>
+              <p>Quantity: {product.quantity}</p>
+              <button
+                onClick={() => updateQuantity(product.id, product.quantity + 1)}
+              >
+                +
+              </button>
+            </div>
           </div>
-        </div>
-      ))}
-      <PurchaseandTotalSection orders={orders} />
-    </div>
+        ))}
+        <PurchaseandTotalSection orders={orders} />
+      </div>
+    </>
   );
 };
 
