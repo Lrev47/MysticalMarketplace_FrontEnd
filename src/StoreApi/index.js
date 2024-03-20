@@ -2,6 +2,7 @@ import {
   useCreateOrderMutation,
   useGetAllOrdersQuery,
   useGetCurrentOrderQuery,
+  useUpdateOrderStatusByIdMutation,
 } from "./OrderApi";
 import {
   useAddOrderItemMutation,
@@ -12,11 +13,13 @@ import {
 import {
   useGetAllProductsQuery,
   useGetSingleProductQuery,
+  useUpdateMultipleProductQuantitiesMutation,
 } from "./ProductsApi";
 import {
   useLoginUserMutation,
   useGetUserByIdQuery,
   useGetAllUsersQuery,
+  useUpdateMoneyByUserIdMutation,
 } from "./userApi";
 
 export {
@@ -25,6 +28,9 @@ export {
   useLoginUserMutation,
   useGetCurrentOrderQuery,
   useGetOrderItemsByOrderIdQuery,
+  useUpdateMoneyByUserIdMutation,
+  useUpdateOrderStatusByIdMutation,
+  useUpdateMultipleProductQuantitiesMutation,
   // useGetUserOrder,
   useGetUserByIdQuery,
   useGetAllUsersQuery,

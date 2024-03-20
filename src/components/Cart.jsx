@@ -149,7 +149,7 @@ export const CartPage = ({ token, userId, orders }) => {
             </div>
           </div>
         ))}
-        <PurchaseandTotalSection orders={orders} />
+        <PurchaseandTotalSection orders={orders} userId={userId} />
       </div>
     </>
   );

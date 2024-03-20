@@ -7,6 +7,7 @@ import AccountPage from "./AccountPage";
 import CategoriesProductDisplay from "./categoryDisplay";
 import CartPage from "./Cart";
 import OrderHistory from "./OrderHistoryPage";
+import OrderComplete from "./OrderCompletePage";
 
 function MainContainer({
   token,
@@ -62,6 +63,8 @@ function MainContainer({
           path="/orderHistory"
           element={<OrderHistory orders={orders} />}
         />
+
+        <Route path="/orderComplete" element={<OrderComplete />} />
       </Routes>
     </div>
   );

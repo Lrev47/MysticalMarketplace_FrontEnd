@@ -21,6 +21,14 @@ export const UserApi = createApi({
       }),
     }),
 
+    updateMoneyByUserId: builder.mutation({
+      query: (user) => ({
+        url: "/updateUserBalance",
+        method: "PATCH",
+        body: user,
+      }),
+    }),
+
     getAllUsers: builder.query({
       query: () => ({
         url: "/users",
@@ -42,4 +50,5 @@ export const {
   // useRegisterUserMutation,
   useGetUserByIdQuery,
   useGetAllUsersQuery,
+  useUpdateMoneyByUserIdMutation,
 } = UserApi;

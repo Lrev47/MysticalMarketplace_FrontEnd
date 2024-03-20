@@ -8,11 +8,20 @@ export const OrderApi = createApi({
   endpoints: (builder) => ({
     createOrder: builder.mutation({
       query: (order) => ({
-        url: "/Order",
+        url: "/createOrder",
         method: "POST",
         body: order,
       }),
     }),
+
+    updateOrderStatusById: builder.mutation({
+      query: (order) => ({
+        url: "/updateStatus",
+        method: "PATCH",
+        body: order,
+      }),
+    }),
+
     getCurrentOrder: builder.query({
       query: ({ token, userId }) => ({
         url: `/Order/current/?userId=${userId}`,
@@ -36,4 +45,5 @@ export const {
   useCreateOrderMutation,
   useGetAllOrdersQuery,
   useGetCurrentOrderQuery,
+  useUpdateOrderStatusByIdMutation,
 } = OrderApi;

@@ -12,7 +12,17 @@ export const ProductsApi = createApi({
     getSingleProduct: builder.query({
       query: (id) => `/products/${id}`,
     }),
+    updateMultipleProductQuantities: builder.mutation({
+      query: (productsToUpdate) => ({
+        url: "/products//updateQuantities",
+        method: "PATCH",
+        body: productsToUpdate,
+      }),
+    }),
   }),
 });
-
-export const { useGetAllProductsQuery, useGetSingleProductQuery } = ProductsApi;
+export const {
+  useGetAllProductsQuery,
+  useGetSingleProductQuery,
+  useUpdateMultipleProductQuantitiesMutation,
+} = ProductsApi;
