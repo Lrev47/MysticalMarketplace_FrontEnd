@@ -132,20 +132,29 @@ export const CartPage = ({ token, userId, orders }) => {
               <p>{product.inStock ? "In Stock" : "Out of Stock"}</p>
               <p>Description: {product.description}</p>
             </div>
+
             <div className="CartItemImageAndQuantDiv">
               <img className="CartItemImage" src={product.imageUrl} />
-              <button
-                onClick={() => updateQuantity(product.id, product.quantity - 1)}
-              >
-                -
-              </button>
+              <div className="CartQuantity">
+                <button
+                  className="CartQuantityButton"
+                  onClick={() =>
+                    updateQuantity(product.id, product.quantity - 1)
+                  }
+                >
+                  -
+                </button>
 
-              <p>Quantity: {product.quantity}</p>
-              <button
-                onClick={() => updateQuantity(product.id, product.quantity + 1)}
-              >
-                +
-              </button>
+                <p>Quantity: {product.quantity}</p>
+                <button
+                  className="CartQuantityButton"
+                  onClick={() =>
+                    updateQuantity(product.id, product.quantity + 1)
+                  }
+                >
+                  +
+                </button>
+              </div>
             </div>
           </div>
         ))}

@@ -550,7 +550,7 @@ html {
   font-size: 30px;
 }
 .ViewOrderHistoryButton {
-  height: 100px;
+  height: 75px;
   width: 200px;
   text-align: center;
   font-size: 20px;
@@ -569,6 +569,12 @@ html {
   justify-content: center;
   align-items: center;
   font-size: 30px;
+}
+.MoneyInputContainer {
+  margin-left: 8rem;
+}
+.AddMoneyButton {
+  margin-left: 10.5rem;
 }
 .AddressContainer {
   margin-top: 100px;
@@ -609,6 +615,8 @@ html {
   margin-left: 10%;
   margin-top: 3%;
   width: 50%;
+  margin-top: 3rem;
+  font-size: 25px;
 }
 .CartItemImage {
   width: 400px;
@@ -622,6 +630,20 @@ html {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+.CartQuantity {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  align-items: center;
+}
+.CartQuantityButton {
+  height: 30px;
+  width: 40px;
+  font-size: 25px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 /* END CART PAGE */
 
@@ -642,9 +664,14 @@ html {
   display: flex;
   justify-content: center;
   gap: 20px;
+  height: 75px;
+  align-items: center;
+  font-size: 20px;
 }
 .viewDetailsButton {
-  width: 300px;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
 }
 /* END ORDER HISTORY PAGE */
 .PurchaseOrderandTotalContainer {

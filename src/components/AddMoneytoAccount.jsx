@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useUpdateUserMoneyMutation } from "../StoreApi";
 import { useParams } from "react-router-dom";
 
-const AddMoneyToAccount = ({ token, onMoneyAdded }) => {
+const AddMoneyToAccount = ({ token, userId, onMoneyAdded }) => {
   const [amount, setAmount] = useState("");
-  const { userId } = useParams();
+
   const [updateUserMoney] = useUpdateUserMoneyMutation();
 
   const updateAmount = (e) => {

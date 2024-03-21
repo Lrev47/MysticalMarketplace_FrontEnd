@@ -1,16 +1,28 @@
 import { useGetUserByIdQuery } from "../StoreApi";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import AddMoneyToAccount from "./AddMoneytoAccount";
 
 export const AccountPage = ({ token }) => {
   const { userId } = useParams();
+  const [refresh, setRefresh] = useState(false);
   console.log("THE USER ID IS", userId);
   console.log("TOKEN IS", token);
   const navigate = useNavigate();
-  const { data, error, isLoading } = useGetUserByIdQuery({ userId, token });
+  const { data, error, isLoading, refetch } = useGetUserByIdQuery({
+    userId,
+    token,
+  });
   console.log({ data, error, isLoading });
   console.log(data);
+
+  useEffect(() => {
+    if (refresh) {
+      refetch();
+      setRefresh(false);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [refresh, refetch]);
 
   const handleClick = () => {
     navigate(`/orderHistory`);
@@ -23,7 +35,7 @@ export const AccountPage = ({ token }) => {
   if (error) {
     return <div>{error.message}</div>;
   }
-
+  const triggerRefresh = () => setRefresh(true);
   return (
     <>
       <div className="UserInfoContainer">
@@ -59,7 +71,11 @@ export const AccountPage = ({ token }) => {
         </button>
       </div>
       <div className="AddMunnyToAccountContainer">
-        <AddMoneyToAccount />
+        <AddMoneyToAccount
+          onMoneyAdded={triggerRefresh}
+          userId={userId}
+          token={token}
+        />
       </div>
     </>
   );
