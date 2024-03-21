@@ -21,6 +21,7 @@ import {
   useGetUserByIdQuery,
   useGetAllUsersQuery,
   useUpdateMoneyByUserIdMutation,
+  useUpdateUserMoneyMutation,
 } from "./userApi";
 
 export {
@@ -29,6 +30,7 @@ export {
   useLoginUserMutation,
   useGetCurrentOrderQuery,
   useGetOrderItemsByOrderIdQuery,
+  useUpdateUserMoneyMutation,
   useUpdateMoneyByUserIdMutation,
   useUpdateOrderStatusByIdMutation,
   useUpdateOrderTotalByIdMutation,
