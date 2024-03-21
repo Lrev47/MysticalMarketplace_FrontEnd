@@ -127,7 +127,7 @@ export const CartPage = ({ token, userId, orders }) => {
               <p>{product.name}</p>
               <p>Product Id: {product.id}</p>
               <p>Category: {product.category}</p>
-              <p>Munny: ${product.price.toFixed(2)}</p>
+              <p>Price: ${product.price.toFixed(2)}</p>
               <p>Rating: {product.rating}</p>
               <p>{product.inStock ? "In Stock" : "Out of Stock"}</p>
               <p>Description: {product.description}</p>

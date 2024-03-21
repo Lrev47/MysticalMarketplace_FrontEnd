@@ -8,7 +8,7 @@ export const OrderApi = createApi({
   endpoints: (builder) => ({
     createOrder: builder.mutation({
       query: (order) => ({
-        url: "/createOrder",
+        url: "/Order/createOrder",
         method: "POST",
         body: order,
       }),
@@ -16,7 +16,15 @@ export const OrderApi = createApi({
 
     updateOrderStatusById: builder.mutation({
       query: (order) => ({
-        url: "/updateStatus",
+        url: "/Order/updateStatus",
+        method: "PATCH",
+        body: order,
+      }),
+    }),
+
+    updateOrderTotalById: builder.mutation({
+      query: (order) => ({
+        url: "/Order/updateTotal",
         method: "PATCH",
         body: order,
       }),
@@ -45,5 +53,6 @@ export const {
   useCreateOrderMutation,
   useGetAllOrdersQuery,
   useGetCurrentOrderQuery,
+  useUpdateOrderTotalByIdMutation,
   useUpdateOrderStatusByIdMutation,
 } = OrderApi;

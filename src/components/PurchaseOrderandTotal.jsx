@@ -6,6 +6,7 @@ import {
   useUpdateMoneyByUserIdMutation,
   useCreateOrderMutation,
   useUpdateOrderStatusByIdMutation,
+  useUpdateOrderTotalByIdMutation,
 } from "../StoreApi";
 
 export const PurchaseandTotalSection = ({ orders, userId }) => {
@@ -24,6 +25,7 @@ export const PurchaseandTotalSection = ({ orders, userId }) => {
   const [updateUserBalance] = useUpdateMoneyByUserIdMutation();
   const [createOrder] = useCreateOrderMutation();
   const [updateStatus] = useUpdateOrderStatusByIdMutation();
+  const [updateTotal] = useUpdateOrderTotalByIdMutation();
   // const updatedStatus = "completed";
   console.log("USER ID HIGHER IN THE CODE:", userId);
   useEffect(() => {
@@ -51,18 +53,29 @@ export const PurchaseandTotalSection = ({ orders, userId }) => {
       quantityToSubtract: item.quantity,
     }));
     try {
+      console.log("CALCULATING BALANCE");
       await updateQuantities(productToUpdate).unwrap();
       console.log("TOTAL BALANCE FOR ORDER:", totalBalance);
-      // console.log("USER ID LOWER IN THE CODE:", userId);
+      console.log("USER ID BEFORE UPDATE_USER_BALANCE", userId);
       await updateUserBalance({ userId, totalBalance }).unwrap();
+      console.log("USER BALANCE UPDATED");
+      console.log("UPDATING ORDER TOTAL");
 
+      await updateTotal({
+        orderId: pendingOrder.id,
+        total: totalBalance,
+      }).unwrap();
+      console.log("ORDER TOTAL UPDATED");
+      console.log("SWITCHING ORDER STATUS FROM PENDING TO COMPLETED");
       await updateStatus({
         orderId: pendingOrder.id,
         status: "completed",
       }).unwrap();
-
+      console.log("ORDER STATUS SWITCHED TO COMPLETED");
+      console.log("CREATING A NEW PENDING ORDER");
       await createOrder({ userId }).unwrap();
-
+      console.log("NEW PENDING ORDER CREATED");
+      console.log("NAVIGATING TO ORDER COMPELTE PAGE");
       navigate(`/orderComplete`);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (error) {

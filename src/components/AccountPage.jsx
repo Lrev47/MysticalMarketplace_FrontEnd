@@ -34,7 +34,7 @@ export const AccountPage = ({ token }) => {
           </h2>
           <p></p>
           <p>Email: {data.email}</p>
-          <p>Current Munny: ${data.moneyNum.toFixed(2)}</p>
+          <p>Current Balance: ${data.moneyNum.toFixed(2)}</p>
           <p>Favrotie Item: {data.favoriteProduct}</p>
         </div>
       </div>
