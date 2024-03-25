@@ -22,7 +22,7 @@ export const PurchaseandTotalSection = ({ orders, userId }) => {
   } = useGetOrderItemsByOrderIdQuery(pendingOrder.id);
 
   const [updateQuantities] = useUpdateMultipleProductQuantitiesMutation();
-  const [updateUserBalance] = useUpdateMoneyByUserIdMutation();
+  const [updateMoneyByUserId] = useUpdateMoneyByUserIdMutation();
   const [createOrder] = useCreateOrderMutation();
   const [updateStatus] = useUpdateOrderStatusByIdMutation();
   const [updateTotal] = useUpdateOrderTotalByIdMutation();
@@ -54,7 +54,7 @@ export const PurchaseandTotalSection = ({ orders, userId }) => {
     try {
       await updateQuantities(productToUpdate).unwrap();
 
-      await updateUserBalance({ userId, totalBalance }).unwrap();
+      await updateMoneyByUserId({ userId, totalBalance }).unwrap();
 
       await updateTotal({
         orderId: pendingOrder.id,
