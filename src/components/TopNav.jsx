@@ -12,6 +12,24 @@ export function TopNav({ token, userId }) {
     }
   };
 
+  const OrderHistoryOrLoginRedirect = (e) => {
+    e.preventDefault();
+    if (!token) {
+      navigate("/login");
+    } else {
+      navigate(`/orderHistory`);
+    }
+  };
+
+  const cartOrLoginRedirect = (e) => {
+    e.preventDefault();
+    if (!token) {
+      navigate("/login");
+    } else {
+      navigate(`/Cart`);
+    }
+  };
+
   return (
     <div className="TopNav">
       <Link className="TopNavLinks" to="/">
@@ -29,10 +47,14 @@ export function TopNav({ token, userId }) {
       <Link className="TopNavLinks" to="/login">
         LogIn
       </Link>
-      <Link className="TopNavLinks" to="/orderHistory">
+      <Link
+        className="TopNavLinks"
+        to="/orderHistory"
+        onClick={OrderHistoryOrLoginRedirect}
+      >
         Order History
       </Link>
-      <Link className="TopNavLinks" to="/Cart">
+      <Link className="TopNavLinks" to="/Cart" onClick={cartOrLoginRedirect}>
         <img
           className="CartImageIcon"
           src="https://imagizer.imageshack.com/img924/4575/QZpV8d.png"

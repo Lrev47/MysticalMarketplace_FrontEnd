@@ -13,6 +13,7 @@ function App() {
   const [orders, setOrders] = useState([]);
   return (
     <>
+      {/* <BackgroundSVGs /> */}
       <TopNav token={token} userId={userId} />
       <TopNavTwo token={token} userId={userId} />
       <MainContainer

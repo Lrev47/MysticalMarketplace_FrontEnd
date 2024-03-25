@@ -13,22 +13,19 @@ export function LogInUser({ setToken, setUserId, setOrders }) {
 
   async function submitLogIn(event) {
     event.preventDefault();
-    console.log("Submit Pressed");
+
     try {
       const user = { username: userName, password: password };
-      console.log(user);
 
       const result = await loginUser(user).unwrap();
-      console.log("Login Response from API:", result);
+
       setToken(result.token);
-      console.log("TOKEN SET");
 
       if (result.userId) {
         setUserId(result.userId);
-        console.log(result.orders);
+
         setOrders(result.orders);
-        console.log("ORDERS ARE SET", result.orders);
-        console.log("USER ID SET");
+
         navigate(`/Account/${result.userId}`);
         window.scrollTo({ top: 0, behavior: "smooth" });
       }

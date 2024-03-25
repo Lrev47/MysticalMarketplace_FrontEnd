@@ -12,6 +12,15 @@ export function TopNavTwo({ token, userId }) {
     }
   };
 
+  const cartOrLoginRedirect = (e) => {
+    e.preventDefault();
+    if (!token) {
+      navigate("/login");
+    } else {
+      navigate(`/Cart`);
+    }
+  };
+
   return (
     <div className="TopNavTwo">
       <Link className="TopNavTwoLinks" to="/">
@@ -26,7 +35,7 @@ export function TopNavTwo({ token, userId }) {
         Account
       </a>
 
-      <Link className="TopNavTwoLinks" to="/Cart">
+      <Link className="TopNavTwoLinks" to="/Cart" onClick={cartOrLoginRedirect}>
         Cart
       </Link>
       <Link className="TopNavTwoLinks" to="/login">

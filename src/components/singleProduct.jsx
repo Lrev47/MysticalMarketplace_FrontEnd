@@ -36,10 +36,6 @@ const SingleProduct = ({ token, userId }) => {
   const [similarProductsArray, setsimilarProductsArray] = useState([]);
   const [displayedProductsArray, setdisplayedProductsArray] = useState([]);
 
-  console.log("Product Details:", productDetails);
-  console.log("Current Order:", currentOrder);
-  console.log("Token and UserId:", token, userId);
-
   useEffect(() => {
     if (productDetails) {
       setProductCategory(productDetails.category);
@@ -68,13 +64,13 @@ const SingleProduct = ({ token, userId }) => {
     return shuffled.slice(0, numProducts);
   };
   const addToCart = async () => {
-    console.log(currentOrder);
     if (
       !currentOrder ||
       !productDetails ||
       !currentOrder.id ||
       !productDetails.id
     ) {
+      navigate("/login");
       console.error("Missing necessary order or product details.");
       return;
     }
@@ -87,12 +83,14 @@ const SingleProduct = ({ token, userId }) => {
         price: productDetails.price,
         token,
       }).unwrap();
-      alert("product added!");
+
+      {
+        alert("product added!");
+      }
     } catch (error) {
       console.error(error);
     }
   };
-  console.log("Product ID:", productId);
 
   const handleClick = (productId) => {
     navigate(`/products/${productId}`);
@@ -123,7 +121,11 @@ const SingleProduct = ({ token, userId }) => {
           <div className="SingleProductLineOne"></div>
           <div className="SingleProductPriceandButtonContainer">
             <p className="SingleProductPrice">
-              ${productDetails.price.toFixed(2)}
+              Price $
+              {productDetails.price.toLocaleString(undefined, {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}
             </p>
             <button className="SingleProductCartButton" onClick={addToCart}>
               Add to Cart

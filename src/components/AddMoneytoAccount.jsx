@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useUpdateUserMoneyMutation } from "../StoreApi";
-import { useParams } from "react-router-dom";
 
 const AddMoneyToAccount = ({ token, userId, onMoneyAdded }) => {
   const [amount, setAmount] = useState("");
@@ -8,23 +7,23 @@ const AddMoneyToAccount = ({ token, userId, onMoneyAdded }) => {
   const [updateUserMoney] = useUpdateUserMoneyMutation();
 
   const updateAmount = (e) => {
-    const newAmount = parseInt(e.target.value, 10);
+    const moneyNum = parseInt(e.target.value, 10);
 
-    if (!isNaN(newAmount) && newAmount >= 0) {
-      setAmount(newAmount);
+    if (!isNaN(moneyNum)) {
+      setAmount(moneyNum);
     } else if (e.target.value === "") {
       setAmount("");
     }
   };
 
-  const submitMoneytoAccount = async (newAmount, userId) => {
+  const submitMoneytoAccount = async (moneyNum, userId, token) => {
     try {
       await updateUserMoney({
         userId,
-        newMoneyAmount: newAmount,
+        moneyNum: moneyNum,
         token,
-      }).unwrap();
-      console.log("Money Updated");
+      });
+
       setAmount("");
       onMoneyAdded();
     } catch (error) {
@@ -34,6 +33,7 @@ const AddMoneyToAccount = ({ token, userId, onMoneyAdded }) => {
 
   const onSubmit = () => {
     if (amount >= 0) {
+      console.log(amount, userId);
       submitMoneytoAccount(amount, userId);
     } else {
       console.log("no negative value");

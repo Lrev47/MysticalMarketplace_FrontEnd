@@ -6,15 +6,12 @@ import AddMoneyToAccount from "./AddMoneytoAccount";
 export const AccountPage = ({ token }) => {
   const { userId } = useParams();
   const [refresh, setRefresh] = useState(false);
-  console.log("THE USER ID IS", userId);
-  console.log("TOKEN IS", token);
+
   const navigate = useNavigate();
   const { data, error, isLoading, refetch } = useGetUserByIdQuery({
     userId,
     token,
   });
-  console.log({ data, error, isLoading });
-  console.log(data);
 
   useEffect(() => {
     if (refresh) {

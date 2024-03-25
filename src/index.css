@@ -1,13 +1,25 @@
 /* BACKGROUND COLOR */
 
 html {
-  background-color: rgb(210, 227, 210);
+  /* background-color: #1b0a14; */
+  z-index: -10;
+  background-image: linear-gradient(
+    #1b0a14,
+    #45445d,
+    #221528,
+    #000000,
+    #45445d,
+    #221528,
+    #000000
+  );
+  height: 800.12vh;
 }
 /* END BACKGROUND COLOR */
 
 /* TOP NAV BAR */
 .TopNav {
-  background-color: rgb(167, 196, 170);
+  /* background-color: rgb(167, 196, 170); */
+  color: white;
   margin: 0;
   height: 3vh;
   display: flex;
@@ -17,7 +29,7 @@ html {
   padding-left: 40%;
 }
 .TopNavLinks {
-  color: black;
+  color: rgb(255, 255, 255);
   text-decoration: none;
   padding-top: 5px;
 }
@@ -69,9 +81,11 @@ html {
 /* PRODUCT DISPLAY */
 
 .ProductDisplayContainer {
-  background-color: rgb(185, 219, 190);
+  border: #45445d;
   width: 70vw;
   height: 700px;
+  border-radius: 40px;
+  color: white;
   margin-left: 13%;
   display: flex;
   flex-direction: row;
@@ -174,17 +188,21 @@ html {
 }
 /* END HOME PAGE */
 
+.VectorImageOverLay {
+}
+
 /* SINGLE PRODUCT PAGE */
 .singleProductContainer {
   background-color: rgb(185, 219, 190);
   width: 70vw;
-  height: 700px;
+  height: auto;
   margin-left: 13%;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 .singleProductImage {
-  width: 700px;
+  /* height: auto; */
+  width: 800px;
 }
 .SingleProductLineOne {
   height: 1px;
@@ -214,6 +232,7 @@ html {
   justify-content: space-around;
   width: 658px;
   align-items: center;
+  margin-left: 40px;
 }
 .SingleProductPrice {
   font-size: 30px;
@@ -224,9 +243,10 @@ html {
   font-size: 20px;
 }
 .SingleProductDescription {
-  font-size: 27px;
+  font-size: 32px;
   width: 600px;
   padding-left: 3vw;
+  margin-left: 30px;
   padding-top: 4vh;
 }
 .SingleProductInStockandQuantityContainer {
@@ -235,6 +255,7 @@ html {
   width: 750px;
   align-items: center;
   padding-top: 8vh;
+  margin-top: 4rem;
 }
 .SingleProductInStock {
   font-size: 25px;
@@ -687,4 +708,14 @@ html {
   width: 300px;
   height: 50px;
   font-size: 25px;
+}
+.VectorImageOverLay {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.HomePageMoon {
+  width: 100px;
+  margin-bottom: 40px;
 }

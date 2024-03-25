@@ -21,21 +21,21 @@ export const UserApi = createApi({
       }),
     }),
 
-    updateMoneyByUserId: builder.mutation({
-      query: (user) => ({
-        url: `/users/${user.userId}`,
-        method: "PATCH",
-        body: user,
-      }),
-    }),
+    // updateMoneyByUserId: builder.mutation({
+    //   query: (userId, moneyNum, token) => ({
+    //     url: `/users/${user.userId}`,
+    //     method: "PATCH",
+    //     body: { moneyNum: moneyNum },
+    //   }),
+    // }),
 
     updateUserMoney: builder.mutation({
-      query: ({ userId, newMoneyAmount, token }) => ({
+      query: ({ userId, moneyNum, token }) => ({
         url: `/users/${userId}`,
         method: "PATCH",
         headers: { Authorization: `Bearer ${token}` },
         body: {
-          moneyNum: newMoneyAmount,
+          moneyNum: moneyNum,
         },
       }),
     }),
