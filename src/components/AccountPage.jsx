@@ -3,8 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import AddMoneyToAccount from "./AddMoneytoAccount";
 
-export const AccountPage = ({ token }) => {
-  const { userId } = useParams();
+export const AccountPage = ({ token, userId }) => {
   const [refresh, setRefresh] = useState(false);
   const [currentBalance, setCurrentBalance] = useState(0);
 

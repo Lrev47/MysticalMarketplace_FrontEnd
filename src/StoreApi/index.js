@@ -4,6 +4,7 @@ import {
   useGetCurrentOrderQuery,
   useUpdateOrderStatusByIdMutation,
   useUpdateOrderTotalByIdMutation,
+  useGetPendingOrderByUserIdQuery,
 } from "./OrderApi";
 import {
   useAddOrderItemMutation,
@@ -29,6 +30,7 @@ export {
   useGetSingleProductQuery,
   useLoginUserMutation,
   useGetCurrentOrderQuery,
+  useGetPendingOrderByUserIdQuery,
   useGetOrderItemsByOrderIdQuery,
   useUpdateUserMoneyMutation,
   useUpdateMoneyByUserIdMutation,

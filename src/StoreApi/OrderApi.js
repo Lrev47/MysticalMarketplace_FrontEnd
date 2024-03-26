@@ -14,6 +14,13 @@ export const OrderApi = createApi({
       }),
     }),
 
+    getPendingOrderByUserId: builder.query({
+      query: ({ userId }) => ({
+        url: `/Order?userId=${userId}`,
+        method: "GET",
+      }),
+    }),
+
     updateOrderStatusById: builder.mutation({
       query: (order) => ({
         url: "/Order/updateStatus",
@@ -54,5 +61,6 @@ export const {
   useGetAllOrdersQuery,
   useGetCurrentOrderQuery,
   useUpdateOrderTotalByIdMutation,
+  useGetPendingOrderByUserIdQuery,
   useUpdateOrderStatusByIdMutation,
 } = OrderApi;
