@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const baseUrl = "https://capstone-backend-87g4.onrender.com/api";
+const baseUrl = "http://localhost:8080/api";
 
 export const OrderItemApi = createApi({
   reducerPath: "OrderItemApi",

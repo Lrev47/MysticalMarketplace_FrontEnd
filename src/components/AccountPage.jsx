@@ -6,12 +6,21 @@ import AddMoneyToAccount from "./AddMoneytoAccount";
 export const AccountPage = ({ token }) => {
   const { userId } = useParams();
   const [refresh, setRefresh] = useState(false);
+  const [currentBalance, setCurrentBalance] = useState(0);
 
   const navigate = useNavigate();
   const { data, error, isLoading, refetch } = useGetUserByIdQuery({
     userId,
     token,
   });
+
+  useEffect(() => {
+    if (data) {
+      console.log("User #", userId, "has this much money", data.moneyNum);
+      setCurrentBalance(data.moneyNum);
+      console.log("current balance is set");
+    }
+  }, [data, userId]);
 
   useEffect(() => {
     if (refresh) {
@@ -69,6 +78,7 @@ export const AccountPage = ({ token }) => {
       </div>
       <div className="AddMunnyToAccountContainer">
         <AddMoneyToAccount
+          currentBalance={currentBalance}
           onMoneyAdded={triggerRefresh}
           userId={userId}
           token={token}

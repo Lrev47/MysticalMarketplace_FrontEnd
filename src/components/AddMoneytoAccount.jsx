@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useUpdateUserMoneyMutation } from "../StoreApi";
+import { useUpdateMoneyByUserIdMutation } from "../StoreApi";
 
-const AddMoneyToAccount = ({ token, userId, onMoneyAdded }) => {
+const AddMoneyToAccount = ({ token, userId, onMoneyAdded, currentBalance }) => {
   const [amount, setAmount] = useState("");
 
-  const [updateUserMoney] = useUpdateUserMoneyMutation();
+  const [updateUserMoney] = useUpdateMoneyByUserIdMutation();
 
   const updateAmount = (e) => {
     const moneyNum = parseInt(e.target.value, 10);
@@ -16,12 +16,12 @@ const AddMoneyToAccount = ({ token, userId, onMoneyAdded }) => {
     }
   };
 
-  const submitMoneytoAccount = async (moneyNum, userId, token) => {
+  const submitMoneytoAccount = async (moneyNum, userId, currentBalance) => {
     try {
       await updateUserMoney({
         userId,
-        moneyNum: moneyNum,
-        token,
+        moneyNum,
+        currentBalance,
       });
 
       setAmount("");
@@ -33,8 +33,8 @@ const AddMoneyToAccount = ({ token, userId, onMoneyAdded }) => {
 
   const onSubmit = () => {
     if (amount >= 0) {
-      console.log(amount, userId);
-      submitMoneytoAccount(amount, userId);
+      console.log(userId);
+      submitMoneytoAccount(amount, userId, currentBalance);
     } else {
       console.log("no negative value");
     }
