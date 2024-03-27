@@ -28,6 +28,14 @@ export const OrderItemApi = createApi({
       }),
     }),
 
+    deleteOrderItem: builder.mutation({
+      query: ({ orderItemId }) => ({
+        url: "/OrderItem",
+        method: "DELETE",
+        body: { orderItemId },
+      }),
+    }),
+
     updateOrderItemQuantity: builder.mutation({
       query: ({ orderItemId, quantity, token }) => ({
         url: `/OrderItem/${orderItemId}`,
@@ -46,6 +54,7 @@ export const OrderItemApi = createApi({
 export const {
   useAddOrderItemMutation,
   useGetAllOrderItemsQuery,
+  useDeleteOrderItemMutation,
   useUpdateOrderItemQuantityMutation,
   useGetOrderItemsByOrderIdQuery,
 } = OrderItemApi;

@@ -11,6 +11,7 @@ import {
   useGetAllOrderItemsQuery,
   useUpdateOrderItemQuantityMutation,
   useGetOrderItemsByOrderIdQuery,
+  useDeleteOrderItemMutation,
 } from "./OrderItemApi";
 import {
   useGetAllProductsQuery,
@@ -32,6 +33,7 @@ export {
   useGetCurrentOrderQuery,
   useGetPendingOrderByUserIdQuery,
   useGetOrderItemsByOrderIdQuery,
+  useDeleteOrderItemMutation,
   useUpdateUserMoneyMutation,
   useUpdateMoneyByUserIdMutation,
   useUpdateOrderStatusByIdMutation,

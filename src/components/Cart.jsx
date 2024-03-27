@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import {
   useUpdateOrderItemQuantityMutation,
   useGetPendingOrderByUserIdQuery,
+  useDeleteOrderItemMutation,
 } from "../StoreApi";
 import PurchaseandTotalSection from "./PurchaseOrderandTotal";
 
-export const CartPage = ({ token, userId, orders }) => {
+export const CartPage = ({ token, userId }) => {
   const {
     data: CartData,
     error: CartError,
@@ -13,6 +14,15 @@ export const CartPage = ({ token, userId, orders }) => {
   } = useGetPendingOrderByUserIdQuery({ userId });
 
   const [updateOrderItemQuantity] = useUpdateOrderItemQuantityMutation();
+  const [deleteOrderItem] = useDeleteOrderItemMutation();
+
+  const deleteItem = async (orderItemId) => {
+    try {
+      await deleteOrderItem({ orderItemId });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const updateQuantity = (orderItemId, NewQuantity) => {
     if (NewQuantity < 1) {
@@ -69,6 +79,12 @@ export const CartPage = ({ token, userId, orders }) => {
                   onClick={() => updateQuantity(item.id, item.quantity + 1)}
                 >
                   +
+                </button>
+                <button
+                  onClick={() => deleteItem(item.id)}
+                  className="DeleteItemFromCartButton"
+                >
+                  Delete
                 </button>
               </div>
             </div>
