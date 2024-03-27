@@ -81,7 +81,11 @@ html {
 /* PRODUCT DISPLAY */
 
 .ProductDisplayContainer {
-  border: #45445d;
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 25px;
   width: 70vw;
   height: 700px;
   border-radius: 40px;
@@ -161,7 +165,12 @@ html {
   opacity: 1;
 }
 .Footer {
-  background-color: rgb(185, 219, 190);
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 25px;
+  color: white;
   width: 70vw;
   height: 500px;
   margin-left: 13%;
@@ -188,25 +197,28 @@ html {
 }
 /* END HOME PAGE */
 
-.VectorImageOverLay {
-}
-
 /* SINGLE PRODUCT PAGE */
 .singleProductContainer {
-  background-color: rgb(185, 219, 190);
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 25px;
   width: 70vw;
+  color: white;
   height: auto;
   margin-left: 13%;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
 }
 .singleProductImage {
-  /* height: auto; */
+  align-items: center;
   width: 800px;
 }
 .SingleProductLineOne {
   height: 1px;
-  background-color: black;
+  background-color: rgb(255, 255, 255);
   width: 600px;
   margin-left: 3vw;
   margin-top: 5vh;
@@ -215,7 +227,7 @@ html {
   margin-top: 0px;
   margin-left: 13%;
   height: 1px;
-  background-color: black;
+  background-color: rgb(255, 255, 255);
   width: 70vw;
 }
 .SingleProductName {
@@ -264,7 +276,11 @@ html {
   font-size: 25px;
 }
 .ProductDisplayContainerTwo {
-  background-color: rgb(185, 219, 190);
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 25px;
   width: 70vw;
   margin-top: 200px;
   height: 700px;
@@ -276,8 +292,13 @@ html {
 /* END SINGLE PRODUCT PAGE */
 /* SIMILAR PRODUCT SECTION */
 .SimilarProductsContainer {
-  background-color: rgb(185, 219, 190);
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 25px;
   width: 70vw;
+  color: white;
   height: 700px;
   margin-left: 13%;
   margin-top: 15vh;
@@ -333,7 +354,12 @@ html {
 /* END SIMILAR PRODUCT SECTION */
 /* LOGIN PAGE */
 .LogInContainer {
-  background-color: rgb(185, 219, 190);
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 25px;
+  color: white;
   width: 70vw;
   height: 700px;
   margin-left: 13%;
@@ -362,6 +388,7 @@ html {
   font-size: 25px;
 }
 .selectUserheading {
+  color: white;
   font-size: 50px;
   margin-top: 15vh;
   display: flex;
@@ -370,7 +397,11 @@ html {
   margin-left: 13%;
 }
 .selectUserContainer {
-  background-color: rgb(185, 219, 190);
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 25px;
   width: 70vw;
   height: 700px;
   margin-left: 13%;
@@ -475,6 +506,7 @@ html {
 .filteredByCategoryProductsContainer {
   margin-top: 10vh;
   width: 70vw;
+  color: white;
   height: fit-content;
   margin-left: 10.5%;
   display: grid;
@@ -483,6 +515,7 @@ html {
 }
 .filteredProductContainer {
   width: 450px;
+  color: white;
   height: 450px;
   margin-left: 4.25vw;
   position: relative;
@@ -515,6 +548,7 @@ html {
 }
 .CategoryDisplayHeaderDiv {
   display: flex;
+  color: white;
   justify-content: center;
   align-items: center;
   height: 20px;
@@ -526,8 +560,13 @@ html {
 /* ACCOUNT PAGE */
 
 .UserInfoContainer {
-  background-color: rgb(185, 219, 190);
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 25px;
   width: 70vw;
+  color: white;
   height: 400px;
   margin-left: 13%;
   display: grid;
@@ -541,14 +580,21 @@ html {
   margin-left: 40px;
 }
 .UserInfoHeader {
+  color: white;
   font-size: 35px;
 }
 .UserInfo {
+  color: white;
   font-size: 30px;
 }
 .UsernameAndPasswordContainer {
+  color: white;
   margin-top: 100px;
-  background-color: rgb(185, 219, 190);
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 25px;
   width: 70vw;
   height: 205px;
   margin-left: 13%;
@@ -560,7 +606,12 @@ html {
 }
 .ViewOrderHistoryContainer {
   margin-top: 100px;
-  background-color: rgb(185, 219, 190);
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 25px;
+  color: white;
   width: 70vw;
   height: 500px;
   margin-left: 13%;
@@ -580,8 +631,13 @@ html {
   cursor: pointer;
 }
 .AddMunnyToAccountContainer {
+  color: white;
   margin-top: 100px;
-  background-color: rgb(185, 219, 190);
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 25px;
   width: 70vw;
   height: 500px;
   margin-left: 13%;
@@ -598,8 +654,13 @@ html {
   margin-left: 10.5rem;
 }
 .AddressContainer {
+  color: white;
   margin-top: 100px;
-  background-color: rgb(185, 219, 190);
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 25px;
   width: 70vw;
   height: 350px;
   margin-left: 13%;
@@ -610,7 +671,7 @@ html {
   font-size: 30px;
 }
 .userpassword {
-  background-color: black;
+  background-color: rgb(255, 255, 255);
 }
 .userpassword:hover {
   background-color: rgb(0, 0, 0, 0);
@@ -629,7 +690,12 @@ html {
   gap: 40px;
 }
 .CartItemContainer {
-  background-color: rgb(185, 219, 190);
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 45px;
+  color: white;
   display: flex;
 }
 .CartItemInfoDiv {
@@ -684,7 +750,9 @@ html {
   gap: 50px;
 }
 .OrderContainer {
-  background-color: rgb(185, 219, 190);
+  background-color: rgb(32, 13, 51);
+  border-radius: 45px;
+  color: white;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -700,7 +768,12 @@ html {
 }
 /* END ORDER HISTORY PAGE */
 .PurchaseOrderandTotalContainer {
-  background-color: rgb(185, 219, 190);
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 25px;
+  color: white;
   margin-top: 30px;
   width: 70vw;
   height: 100px;
@@ -713,13 +786,12 @@ html {
   height: 50px;
   font-size: 25px;
 }
-.VectorImageOverLay {
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.HomePageMoon {
+
+.RefreshCartButton {
+  height: 50px;
   width: 100px;
-  margin-bottom: 40px;
+  border-radius: 25px;
+  border: #000000;
+  border-width: 3px;
+  border-style: solid;
 }

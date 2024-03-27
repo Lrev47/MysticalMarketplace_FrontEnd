@@ -17,36 +17,33 @@ export const CartPage = ({ token, userId }) => {
   const [updateOrderItemQuantity] = useUpdateOrderItemQuantityMutation();
   const [deleteOrderItem] = useDeleteOrderItemMutation();
 
-  console.log("Local Cart data right after it is set", CartData);
   const deleteItem = async (orderItemId) => {
     try {
       await deleteOrderItem({ orderItemId });
       alert("Item Deleted");
       window.scrollTo({ top: 0, behavior: "smooth" });
-
-      const updatedCartData = JSON.parse(
-        JSON.stringify(CartData.orderItems)
-      ).filter((item) => item.id !== orderItemId);
       refetch();
     } catch (error) {
       console.error(error);
     }
   };
-  console.log("Local Cart data after an update", CartData);
 
-  const updateQuantity = (orderItemId, NewQuantity) => {
+  const updateQuantity = async (orderItemId, NewQuantity) => {
     if (NewQuantity < 1) {
       console.log("To remove item click delte");
       return;
     }
 
-    updateOrderItemQuantity({
-      orderItemId: orderItemId,
-      quantity: NewQuantity,
-      token: token,
-    }).catch((error) => {
+    try {
+      await updateOrderItemQuantity({
+        orderItemId: orderItemId,
+        quantity: NewQuantity,
+        token: token,
+      });
+      refetch();
+    } catch (error) {
       console.error(error);
-    });
+    }
   };
 
   if (CartLoading) {
@@ -56,11 +53,29 @@ export const CartPage = ({ token, userId }) => {
   if (CartError) {
     return <div>Error: {CartError.message}</div>;
   }
+
+  if (CartData.orderItems.length === 0) {
+    return (
+      <div className="EmptyCartMessage">
+        Your cart is empty.
+        <button className="RefreshCartButton" onClick={() => refetch()}>
+          Refresh Cart
+        </button>
+        ;
+      </div>
+    );
+  }
+
   console.log("Local Cart data right before render", CartData);
   return (
     <>
       <div className="CartContainer">
         <PurchaseandTotalSection cartData={CartData} userId={userId} />
+
+        <button className="RefreshCartButton" onClick={() => refetch()}>
+          Refresh Cart
+        </button>
+
         {CartData?.orderItems?.map((item) => (
           <div key={item.product.id} className="CartItemContainer">
             <div className="CartItemInfoDiv">

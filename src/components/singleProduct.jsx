@@ -63,6 +63,7 @@ const SingleProduct = ({ token, userId }) => {
     const shuffled = [...productsArray].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, numProducts);
   };
+
   const addToCart = async () => {
     if (
       !currentOrder ||
@@ -145,7 +146,7 @@ const SingleProduct = ({ token, userId }) => {
           </div>
         </div>
       </div>
-      <div className="SingleProductLineTwo"></div>
+      {/* <div className="SingleProductLineTwo"></div> */}
 
       <div className="SimilarProductsContainer">
         <h2 className="SimilarProductsHeading">Similar Products</h2>
