@@ -11,18 +11,28 @@ export const CartPage = ({ token, userId }) => {
     data: CartData,
     error: CartError,
     isLoading: CartLoading,
+    refetch,
   } = useGetPendingOrderByUserIdQuery({ userId });
 
   const [updateOrderItemQuantity] = useUpdateOrderItemQuantityMutation();
   const [deleteOrderItem] = useDeleteOrderItemMutation();
 
+  console.log("Local Cart data right after it is set", CartData);
   const deleteItem = async (orderItemId) => {
     try {
       await deleteOrderItem({ orderItemId });
+      alert("Item Deleted");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      const updatedCartData = JSON.parse(
+        JSON.stringify(CartData.orderItems)
+      ).filter((item) => item.id !== orderItemId);
+      refetch();
     } catch (error) {
       console.error(error);
     }
   };
+  console.log("Local Cart data after an update", CartData);
 
   const updateQuantity = (orderItemId, NewQuantity) => {
     if (NewQuantity < 1) {
@@ -46,11 +56,11 @@ export const CartPage = ({ token, userId }) => {
   if (CartError) {
     return <div>Error: {CartError.message}</div>;
   }
-
+  console.log("Local Cart data right before render", CartData);
   return (
     <>
       <div className="CartContainer">
-        {/* <PurchaseandTotalSection orders={[CartData]} userId={userId} /> */}
+        <PurchaseandTotalSection cartData={CartData} userId={userId} />
         {CartData?.orderItems?.map((item) => (
           <div key={item.product.id} className="CartItemContainer">
             <div className="CartItemInfoDiv">
@@ -90,7 +100,7 @@ export const CartPage = ({ token, userId }) => {
             </div>
           </div>
         ))}
-        {/* <PurchaseandTotalSection orders={orders} userId={userId} /> */}
+        <PurchaseandTotalSection cartData={CartData} userId={userId} />
       </div>
     </>
   );
