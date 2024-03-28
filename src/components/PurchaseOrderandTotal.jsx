@@ -24,6 +24,7 @@ export const PurchaseandTotalSection = ({ cartData, userId }) => {
         return runningTotal + currentItem.product.price * currentItem.quantity;
       }, 0);
       setTotalBalance(total);
+      console.log("THE TOTAL IS SET:", total);
     }
   }, [cartData]);
 
@@ -33,6 +34,7 @@ export const PurchaseandTotalSection = ({ cartData, userId }) => {
       quantityToSubtract: item.quantity,
     }));
     try {
+      console.log("THIS IS THE TOTAL BALANCE:", totalBalance);
       console.log(productToUpdate);
       await updateQuantities(productToUpdate);
       await updateUserMoney({ userId, totalBalance });

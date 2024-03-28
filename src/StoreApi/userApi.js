@@ -31,10 +31,11 @@ export const UserApi = createApi({
 
     updateUserMoney: builder.mutation({
       query: ({ userId, totalBalance }) => ({
-        url: `/users/${userId}`,
+        url: `/users/deductMoney`,
         method: "PATCH",
 
         body: {
+          userId,
           totalBalance,
         },
       }),
