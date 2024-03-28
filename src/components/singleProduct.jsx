@@ -24,6 +24,7 @@ const SingleProduct = ({ token, userId }) => {
     data: productDetails,
     error: productError,
     isLoading: productIsLoading,
+    refetch: refetchProductDetails,
   } = useGetSingleProductQuery(productId);
 
   const {
@@ -141,7 +142,7 @@ const SingleProduct = ({ token, userId }) => {
               {productDetails.inStock ? "In Stock" : "Out of Stock"}
             </p>
             <p className="SingleProductQuantity">
-              Only {productDetails.quantity} left
+              {productDetails.quantity} items left
             </p>
           </div>
         </div>

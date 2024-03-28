@@ -16,12 +16,11 @@ const AddMoneyToAccount = ({ token, userId, onMoneyAdded, currentBalance }) => {
     }
   };
 
-  const submitMoneytoAccount = async (moneyNum, userId, currentBalance) => {
+  const submitMoneytoAccount = async (userId, moneyNum) => {
     try {
       await updateUserMoney({
         userId,
         moneyNum,
-        currentBalance,
       });
 
       setAmount("");
@@ -33,8 +32,9 @@ const AddMoneyToAccount = ({ token, userId, onMoneyAdded, currentBalance }) => {
 
   const onSubmit = () => {
     if (amount >= 0) {
-      console.log(userId);
-      submitMoneytoAccount(amount, userId, currentBalance);
+      const moneyNum = amount;
+      console.log(userId, moneyNum);
+      submitMoneytoAccount(userId, moneyNum);
     } else {
       console.log("no negative value");
     }

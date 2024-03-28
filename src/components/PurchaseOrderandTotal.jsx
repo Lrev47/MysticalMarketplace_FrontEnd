@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   useUpdateMultipleProductQuantitiesMutation,
-  useUpdateMoneyByUserIdMutation,
+  useUpdateUserMoneyMutation,
   useCreateOrderMutation,
-  useUpdateOrderStatusByIdMutation,
   useUpdateOrderTotalByIdMutation,
 } from "../StoreApi";
 
@@ -13,9 +12,9 @@ export const PurchaseandTotalSection = ({ cartData, userId }) => {
   const [totalBalance, setTotalBalance] = useState(0);
 
   const [updateQuantities] = useUpdateMultipleProductQuantitiesMutation();
-  const [updateMoneyByUserId] = useUpdateMoneyByUserIdMutation();
+  const [updateUserMoney] = useUpdateUserMoneyMutation();
   const [createOrder] = useCreateOrderMutation();
-  const [updateStatus] = useUpdateOrderStatusByIdMutation();
+
   const [updateTotal] = useUpdateOrderTotalByIdMutation();
 
   useEffect(() => {
@@ -34,17 +33,13 @@ export const PurchaseandTotalSection = ({ cartData, userId }) => {
       quantityToSubtract: item.quantity,
     }));
     try {
+      console.log(productToUpdate);
       await updateQuantities(productToUpdate);
-      await updateMoneyByUserId({ userId, totalBalance });
+      await updateUserMoney({ userId, totalBalance });
 
       await updateTotal({
+        ...cartData,
         orderId: cartData.id,
-        total: totalBalance,
-      });
-
-      await updateStatus({
-        orderId: cartData.id,
-        status: "completed",
       });
 
       await createOrder({ userId });
@@ -54,7 +49,7 @@ export const PurchaseandTotalSection = ({ cartData, userId }) => {
       console.error(error);
     }
   };
-
+  console.log("CART DATA:", cartData);
   return (
     <div className="PurchaseOrderandTotalContainer">
       <h1>

@@ -22,20 +22,20 @@ export const UserApi = createApi({
     }),
 
     updateMoneyByUserId: builder.mutation({
-      query: ({ userId, moneyNum, currentBalance }) => ({
-        url: `/users/${userId}`,
+      query: ({ userId, moneyNum }) => ({
+        url: `/users/AddMoney`,
         method: "PATCH",
-        body: { userId, moneyNum, currentBalance },
+        body: { userId, moneyNum },
       }),
     }),
 
     updateUserMoney: builder.mutation({
-      query: ({ userId, moneyNum, token }) => ({
+      query: ({ userId, totalBalance }) => ({
         url: `/users/${userId}`,
         method: "PATCH",
-        headers: { Authorization: `Bearer ${token}` },
+
         body: {
-          moneyNum: moneyNum,
+          totalBalance,
         },
       }),
     }),
