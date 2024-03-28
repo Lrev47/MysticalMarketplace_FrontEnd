@@ -1,8 +1,6 @@
 /* BACKGROUND COLOR */
 
 html {
-  /* background-color: #1b0a14; */
-  z-index: -10;
   background-image: linear-gradient(
     #1b0a14,
     #45445d,
@@ -12,7 +10,7 @@ html {
     #221528,
     #000000
   );
-  height: 800.12vh;
+  height: auto;
 }
 /* END BACKGROUND COLOR */
 
@@ -32,6 +30,15 @@ html {
   color: rgb(255, 255, 255);
   text-decoration: none;
   padding-top: 5px;
+  text-align: center;
+  margin-top: 8px;
+}
+.TopNavLinks:hover {
+  color: rgb(0, 0, 0);
+  background-color: #ffffff;
+  text-decoration: none;
+  padding-top: 5px;
+  border-radius: 25px;
 }
 .searchBarForm {
   margin-left: 200px;
@@ -64,7 +71,6 @@ html {
   height: 10vh;
   display: flex;
   align-items: center;
-
   padding-left: 63vw;
   gap: 2px;
 }
@@ -72,6 +78,15 @@ html {
 .TopNavTwoLinks {
   background-color: white;
   color: black;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+}
+.TopNavTwoLinks:hover {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border: white;
+  border-style: solid;
   width: 100px;
   text-align: center;
   text-decoration: none;
@@ -84,7 +99,9 @@ html {
   background-color: rgb(32, 13, 51);
   border: #000000;
   border-width: 3px;
+  margin-top: 10rem;
   border-style: solid;
+  box-shadow: #000000 5px 5px;
   border-radius: 25px;
   width: 70vw;
   height: 700px;
@@ -98,6 +115,8 @@ html {
 .displayImage {
   width: 500px;
   margin-top: 90px;
+  margin-left: 13rem;
+  box-shadow: #000000 10px 10px;
 }
 .displayImage:hover {
   cursor: pointer;
@@ -135,6 +154,7 @@ html {
   position: relative;
 }
 .HomePageProductImage {
+  box-shadow: #000000 10px 10px;
   width: 230px;
   margin-top: 7vh;
   z-index: 2;
@@ -168,6 +188,7 @@ html {
   background-color: rgb(32, 13, 51);
   border: #000000;
   border-width: 3px;
+  box-shadow: #000000 10px 10px;
   border-style: solid;
   border-radius: 25px;
   color: white;
@@ -200,6 +221,7 @@ html {
 /* SINGLE PRODUCT PAGE */
 .singleProductContainer {
   background-color: rgb(32, 13, 51);
+  box-shadow: #000000 5px 5px;
   border: #000000;
   border-width: 3px;
   border-style: solid;
@@ -215,6 +237,9 @@ html {
 .singleProductImage {
   align-items: center;
   width: 800px;
+  margin-left: 10px;
+  box-shadow: #000000 10px 10px;
+  border-radius: 25px;
 }
 .SingleProductLineOne {
   height: 1px;
@@ -253,6 +278,16 @@ html {
   width: 200px;
   height: 50px;
   font-size: 20px;
+  box-shadow: #000000 10px 10px;
+}
+.SingleProductCartButton:hover {
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  background-color: #000000;
+  color: white;
+  box-shadow: #ffffff 10px 10px;
+  font-size: 20px;
 }
 .SingleProductDescription {
   font-size: 32px;
@@ -275,20 +310,7 @@ html {
 .SingleProductQuantity {
   font-size: 25px;
 }
-.ProductDisplayContainerTwo {
-  background-color: rgb(32, 13, 51);
-  border: #000000;
-  border-width: 3px;
-  border-style: solid;
-  border-radius: 25px;
-  width: 70vw;
-  margin-top: 200px;
-  height: 700px;
-  margin-left: 13%;
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-}
+
 /* END SINGLE PRODUCT PAGE */
 /* SIMILAR PRODUCT SECTION */
 .SimilarProductsContainer {
@@ -298,6 +320,7 @@ html {
   border-style: solid;
   border-radius: 25px;
   width: 70vw;
+  box-shadow: #000000 10px 10px;
   color: white;
   height: 700px;
   margin-left: 13%;
@@ -324,6 +347,7 @@ html {
 }
 .SimilarProductImage {
   width: 100%;
+  box-shadow: #000000 10px 10px;
   height: 100%;
 }
 .SimilarProductImage:hover {
@@ -360,6 +384,7 @@ html {
   border-style: solid;
   border-radius: 25px;
   color: white;
+  box-shadow: #000000 10px 10px;
   width: 70vw;
   height: 700px;
   margin-left: 13%;
@@ -386,6 +411,14 @@ html {
 }
 .LogInSubmitbutton {
   font-size: 25px;
+  box-shadow: #000000 10px 10px;
+}
+.LogInSubmitbutton:hover {
+  font-size: 25px;
+  box-shadow: #000000 10px 10px;
+  background-color: #000000;
+  color: white;
+  box-shadow: #ffffff 10px 10px;
 }
 .selectUserheading {
   color: white;
@@ -399,6 +432,7 @@ html {
 .selectUserContainer {
   background-color: rgb(32, 13, 51);
   border: #000000;
+  box-shadow: #000000 10px 10px;
   border-width: 3px;
   border-style: solid;
   border-radius: 25px;
@@ -420,6 +454,7 @@ html {
 .selectUserImage {
   margin-left: 3.25vw;
   width: 100%;
+  box-shadow: #000000 10px 10px;
   height: 100%;
   position: absolute;
   top: 0;
@@ -463,10 +498,11 @@ html {
   gap: 60px;
 }
 .CategoryContainer {
-  background-color: bisque;
+  /* background-color: bisque; */
   width: 550px;
   height: 230px;
   display: flex;
+  box-shadow: #000000 15px 15px;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -523,6 +559,7 @@ html {
 .filteredProductImage {
   width: 100%;
   height: 100%;
+  box-shadow: #000000 10px 10px;
   position: absolute;
 }
 .filteredProductImageOverlay {
@@ -538,6 +575,7 @@ html {
   text-align: center;
   display: flex;
   align-items: center;
+
   justify-content: center;
   opacity: 0;
   transition: background-color 0.5s ease, opacity 0.5s ease;
@@ -564,6 +602,7 @@ html {
   border: #000000;
   border-width: 3px;
   border-style: solid;
+  box-shadow: #000000 10px 10px;
   border-radius: 25px;
   width: 70vw;
   color: white;
@@ -576,6 +615,7 @@ html {
 .AccountImage {
   width: 300px;
   height: 300px;
+  box-shadow: #000000 10px 10px;
   border-radius: 100%;
   margin-left: 40px;
 }
@@ -592,6 +632,7 @@ html {
   margin-top: 100px;
   background-color: rgb(32, 13, 51);
   border: #000000;
+  box-shadow: #000000 10px 10px;
   border-width: 3px;
   border-style: solid;
   border-radius: 25px;
@@ -609,6 +650,7 @@ html {
   background-color: rgb(32, 13, 51);
   border: #000000;
   border-width: 3px;
+  box-shadow: #000000 10px 10px;
   border-style: solid;
   border-radius: 25px;
   color: white;
@@ -626,6 +668,7 @@ html {
   width: 200px;
   text-align: center;
   font-size: 20px;
+  box-shadow: #000000 10px 10px;
 }
 .ViewOrderHistoryButton:hover {
   cursor: pointer;
@@ -639,19 +682,30 @@ html {
   border-style: solid;
   border-radius: 25px;
   width: 70vw;
+  box-shadow: #000000 10px 10px;
   height: 500px;
   margin-left: 13%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
+  font-size: 60px;
 }
 .MoneyInputContainer {
-  margin-left: 8rem;
+  margin-left: 17rem;
+}
+.MoneyInput {
+  width: 300px;
+  height: 50px;
+  box-shadow: #000000 10px 10px;
+  font-size: 20px;
 }
 .AddMoneyButton {
-  margin-left: 10.5rem;
+  margin-left: 21rem;
+  width: 200px;
+  height: 25px;
+  box-shadow: #000000 10px 10px;
+  font-size: 20px;
 }
 .AddressContainer {
   color: white;
@@ -693,6 +747,7 @@ html {
   background-color: rgb(32, 13, 51);
   border: #000000;
   border-width: 3px;
+  box-shadow: #000000 10px 10px;
   border-style: solid;
   border-radius: 45px;
   color: white;
@@ -708,6 +763,7 @@ html {
 .CartItemImage {
   width: 400px;
   height: 400px;
+  box-shadow: #000000 10px 10px;
 }
 .CartItemImageAndQuantDiv {
   margin-top: 3%;
@@ -721,6 +777,7 @@ html {
 .CartQuantity {
   display: flex;
   justify-content: center;
+  margin-top: 1rem;
   gap: 15px;
   align-items: center;
 }
@@ -732,9 +789,43 @@ html {
   align-items: center;
   justify-content: center;
 }
+.CartQuantityButton:hover {
+  height: 30px;
+  width: 40px;
+  cursor: pointer;
+  background-color: #000000;
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
 .DeleteItemFromCartButton {
   height: 30px;
   width: 90px;
+}
+.DeleteItemFromCartButton:hover {
+  height: 30px;
+  width: 90px;
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+}
+.EmptyCartMessage {
+  width: 70vw;
+  height: 200px;
+  margin-left: 13%;
+  background-color: rgb(32, 13, 51);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  border: #000000;
+  border-style: solid;
+  box-shadow: #000000 10px 10px;
+  color: #ffffff;
+  font-size: 20px;
+  gap: 40px;
 }
 /* END CART PAGE */
 
@@ -754,6 +845,7 @@ html {
   border-radius: 45px;
   color: white;
   width: 100%;
+  box-shadow: #000000 10px 10px;
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -764,6 +856,7 @@ html {
 .viewDetailsButton {
   width: 200px;
   height: 50px;
+  box-shadow: #000000 5px 5px;
   font-size: 20px;
 }
 /* END ORDER HISTORY PAGE */
@@ -777,6 +870,7 @@ html {
   margin-top: 30px;
   width: 70vw;
   height: 100px;
+  box-shadow: #000000 10px 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -784,14 +878,71 @@ html {
 .PurchaseItemsButton {
   width: 300px;
   height: 50px;
+  box-shadow: #000000 10px 10px;
   font-size: 25px;
 }
-
+.PurchaseItemsButton:hover {
+  cursor: pointer;
+  width: 300px;
+  background-color: #000000;
+  color: white;
+  height: 50px;
+  box-shadow: #ffffff 10px 10px;
+  font-size: 25px;
+}
 .RefreshCartButton {
   height: 50px;
   width: 100px;
   border-radius: 25px;
   border: #000000;
+  box-shadow: #000000 10px 10px;
   border-width: 3px;
   border-style: solid;
+}
+.RefreshCartButton:hover {
+  height: 50px;
+  width: 100px;
+  cursor: pointer;
+  background-color: #000000;
+  color: white;
+  border-radius: 25px;
+  border: #000000;
+  box-shadow: #ffffff 10px 10px;
+  border-width: 3px;
+  border-style: solid;
+}
+.OrderCompleteContainer {
+  color: white;
+  margin-top: 100px;
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 25px;
+  width: 70vw;
+  box-shadow: #000000 10px 10px;
+  height: 500px;
+  margin-left: 13%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+}
+.returnToHomeButton {
+  margin-top: 20px;
+  height: 30px;
+  width: 200px;
+  box-shadow: #000000 10px 10px;
+  font-size: 20px;
+}
+.returnToHomeButton:hover {
+  margin-top: 20px;
+  height: 30px;
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+  width: 200px;
+  box-shadow: #ffffff 10px 10px;
+  font-size: 20px;
 }

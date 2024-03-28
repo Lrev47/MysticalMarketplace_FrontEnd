@@ -61,7 +61,6 @@ export const CartPage = ({ token, userId }) => {
         <button className="RefreshCartButton" onClick={() => refetch()}>
           Refresh Cart
         </button>
-        ;
       </div>
     );
   }

@@ -147,7 +147,6 @@ const SingleProduct = ({ token, userId }) => {
           </div>
         </div>
       </div>
-      {/* <div className="SingleProductLineTwo"></div> */}
 
       <div className="SimilarProductsContainer">
         <h2 className="SimilarProductsHeading">Similar Products</h2>
@@ -169,7 +168,7 @@ const SingleProduct = ({ token, userId }) => {
             ))}
         </div>
       </div>
-      <div className="ProductDisplayContainerTwo">
+      <div>
         <ProductDisplay />
       </div>
     </>
