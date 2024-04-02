@@ -215,6 +215,14 @@ html {
 .socialMediaButtons {
   display: flex;
   justify-content: center;
+  gap: 10px;
+}
+.socialMediaButton {
+  width: 30px;
+  height: 30px;
+}
+.socialMediaButton:hover {
+  cursor: pointer;
 }
 /* END HOME PAGE */
 

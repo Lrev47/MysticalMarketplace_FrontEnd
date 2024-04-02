@@ -31,7 +31,35 @@ const Footer = () => {
           fortune favor the foolishly brave.
         </p>
       </div>
-      <div className="socialMediaButtons">TEST</div>
+
+      <div className="socialMediaButtons">
+        <a
+          className="socialMediaButton"
+          href="https://www.linkedin.com/in/luisrevilla47"
+          target="_blank"
+        >
+          <img
+            className="socialMediaButton"
+            src="https://imagizer.imageshack.com/img923/4505/82KZav.png"
+          ></img>
+        </a>
+        <a
+          className="socialMediaButton"
+          href="https://www.facebook.com/profile.php?id=100072527401235&mibextid=ZbWKwL"
+          target="_blank"
+        >
+          <img
+            className="socialMediaButton"
+            src="https://imagizer.imageshack.com/img922/5852/Wy0erA.png"
+          ></img>
+        </a>
+        <a href="https://github.com/Lrev47" target="_blank">
+          <img
+            className="socialMediaButton"
+            src="https://imagizer.imageshack.com/img922/2379/tMsVyS.png"
+          ></img>
+        </a>
+      </div>
     </div>
   );
 };
