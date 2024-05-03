@@ -1,0 +1,113 @@
+/* HOME PAGE */
+.HomePageProductsContainer {
+  width: 100%; /* Use full width to make it responsive */
+  margin: 0 auto; /* Center the container */
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(230px, 1fr)
+  ); /* Adjust columns based on the screen width */
+  gap: 20px; /* Consistent spacing */
+  justify-content: center; /* Center grid items horizontally */
+}
+
+@media (min-width: 920px) {
+  /* Adjust for screens larger than 920px */
+  .HomePageProductsContainer {
+    grid-template-columns: repeat(
+      4,
+      1fr
+    ); /* Max 4 columns for larger screens */
+  }
+}
+
+.ProductContainer {
+  position: relative;
+  width: 100%; /* Full width to fill grid column */
+  max-width: 230px; /* Limit the maximum width to the size of the image */
+  margin: 1rem auto; /* Center the container with automatic margins */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Align items vertically */
+}
+
+.HomePageProductImage {
+  box-shadow: 10px 10px 0px 0px #000000;
+  width: 100%; /* Make width responsive */
+  position: relative; /* Ensure it's relative for overlay positioning */
+  z-index: 1; /* Adjust z-index for layering */
+}
+
+.HomePageProductImage:hover,
+.ImageOverlay:hover {
+  cursor: pointer;
+}
+
+.ImageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0; /* Align with the top and left edges */
+  width: 100%; /* Cover the full width of the parent container */
+  height: 100%; /* Maintain the height percentage */
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  font-size: 1.5rem; /* Responsive font size */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: background-color 0.5s ease, opacity 0.5s ease;
+  z-index: 2; /* Ensure overlay is above the image */
+}
+
+.ImageOverlay:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 1;
+}
+
+.Footer {
+  background-color: rgb(32, 13, 51);
+  border: solid 3px #000000;
+  box-shadow: 10px 10px 0px 0px #000000;
+  border-radius: 25px;
+  color: white;
+  width: 90%; /* Make footer responsive */
+  height: auto; /* Responsive height */
+  padding: 2rem; /* Responsive padding */
+  margin: 2rem auto; /* Center and responsive margin */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Responsive gap */
+}
+
+.WarningLabel {
+  padding: 2rem; /* Responsive padding */
+  margin-top: 2rem; /* Responsive top margin */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+}
+
+.WarningLabelText {
+  width: 100%; /* Make width responsive */
+  margin-left: auto; /* Center align */
+  margin-right: auto; /* Center align */
+}
+
+.socialMediaButtons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.socialMediaButton {
+  width: 30px; /* Fixed width, small element */
+  height: 30px; /* Fixed height, small element */
+}
+
+.socialMediaButton:hover {
+  cursor: pointer;
+}
+/* END HOME PAGE */

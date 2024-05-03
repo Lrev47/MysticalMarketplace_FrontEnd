@@ -1,0 +1,110 @@
+/* LOGIN PAGE */
+.LogInContainer {
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 25px;
+  color: white;
+  box-shadow: #000000 10px 10px;
+  width: 70vw;
+  height: 700px;
+  margin-left: 13%;
+  margin-top: 10vh;
+  position: relative;
+}
+.LogInFormWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70vw;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.LoginFormLabel {
+  font-size: 30px;
+}
+.LoginInput {
+  font-size: 20px;
+}
+.LogInSubmitbutton {
+  font-size: 25px;
+  box-shadow: #000000 10px 10px;
+}
+.LogInSubmitbutton:hover {
+  font-size: 25px;
+  box-shadow: #000000 10px 10px;
+  background-color: #000000;
+  color: white;
+  box-shadow: #ffffff 10px 10px;
+}
+.selectUserheading {
+  color: white;
+  font-size: 50px;
+  margin-top: 15vh;
+  display: flex;
+  width: 70vw;
+  justify-content: center;
+  margin-left: 13%;
+}
+.selectUserContainer {
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  box-shadow: #000000 10px 10px;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 25px;
+  width: 70vw;
+  height: 700px;
+  margin-left: 13%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+}
+.UserContainer {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+.selectUserImage {
+  margin-left: 3.25vw;
+  width: 100%;
+  box-shadow: #000000 10px 10px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.selectUserImage:hover {
+  cursor: pointer;
+}
+.UserImageOverlay {
+  cursor: pointer;
+  position: absolute;
+  margin-left: 3.25vw;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: background-color 0.5s ease, opacity 0.5s ease;
+}
+.UserImageOverlay:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 1;
+}
+/* END LOGIN PAGE */

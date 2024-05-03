@@ -1,0 +1,9 @@
+html {
+  width: 100%;
+  min-height: 100%;
+  background-image: linear-gradient(#1b0a14, #45445d, #221528, #221528);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

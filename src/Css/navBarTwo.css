@@ -1,0 +1,26 @@
+/* NAV BAR 2 */
+.TopNavTwo {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  padding-left: 63vw;
+  gap: 2px;
+}
+
+.TopNavTwoLinks {
+  background-color: white;
+  color: black;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+}
+.TopNavTwoLinks:hover {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border: white;
+  border-style: solid;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+}
+/* END NAV BAR 2 */

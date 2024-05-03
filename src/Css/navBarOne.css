@@ -1,0 +1,48 @@
+.TopNav {
+  /* background-color: rgb(167, 196, 170); */
+  color: white;
+  margin: 0;
+  height: 3vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+  padding-left: 40%;
+}
+.TopNavLinks {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  padding-top: 5px;
+  text-align: center;
+  margin-top: 8px;
+}
+.TopNavLinks:hover {
+  color: rgb(0, 0, 0);
+  background-color: #ffffff;
+  text-decoration: none;
+  padding-top: 5px;
+  border-radius: 25px;
+}
+.searchBarForm {
+  margin-left: 200px;
+  display: flex;
+  align-items: center;
+}
+.SearchBarButton {
+  margin-right: 10px;
+}
+.SearchBar {
+  margin-right: 300px;
+}
+.SearchBarButton {
+  width: 20px;
+}
+.SearchBarButton:hover {
+  cursor: pointer;
+}
+.CartImageIcon {
+  width: 40px;
+  margin-left: 20rem;
+  position: relative;
+  top: -8px;
+}

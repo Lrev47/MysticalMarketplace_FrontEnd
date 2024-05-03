@@ -1,0 +1,182 @@
+/* CART PAGE */
+.CartContainer {
+  /* background-color: rgb(185, 219, 190); */
+  width: 70vw;
+  height: fit-content;
+  margin-left: 13%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.CartItemContainer {
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  border-width: 3px;
+  box-shadow: #000000 10px 10px;
+  border-style: solid;
+  border-radius: 45px;
+  color: white;
+  display: flex;
+}
+.CartItemInfoDiv {
+  margin-left: 10%;
+  margin-top: 3%;
+  width: 50%;
+  margin-top: 3rem;
+  font-size: 25px;
+}
+.CartItemImage {
+  width: 400px;
+  height: 400px;
+  box-shadow: #000000 10px 10px;
+}
+.CartItemImageAndQuantDiv {
+  margin-top: 3%;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.CartQuantity {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 15px;
+  align-items: center;
+}
+.CartQuantityButton {
+  height: 30px;
+  width: 40px;
+  font-size: 25px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.CartQuantityButton:hover {
+  height: 30px;
+  width: 40px;
+  cursor: pointer;
+  background-color: #000000;
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.DeleteItemFromCartButton {
+  height: 30px;
+  width: 90px;
+}
+.DeleteItemFromCartButton:hover {
+  height: 30px;
+  width: 90px;
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+}
+.EmptyCartMessage {
+  width: 70vw;
+  height: 200px;
+  margin-left: 13%;
+  background-color: rgb(32, 13, 51);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  border: #000000;
+  border-style: solid;
+  box-shadow: #000000 10px 10px;
+  color: #ffffff;
+  font-size: 20px;
+  gap: 40px;
+}
+.PurchaseOrderandTotalContainer {
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 25px;
+  color: white;
+  margin-top: 30px;
+  width: 70vw;
+  height: 100px;
+  box-shadow: #000000 10px 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.PurchaseItemsButton {
+  width: 300px;
+  height: 50px;
+  box-shadow: #000000 10px 10px;
+  font-size: 25px;
+}
+.PurchaseItemsButton:hover {
+  cursor: pointer;
+  width: 300px;
+  background-color: #000000;
+  color: white;
+  height: 50px;
+  box-shadow: #ffffff 10px 10px;
+  font-size: 25px;
+}
+.RefreshCartButton {
+  height: 50px;
+  width: 100px;
+  border-radius: 25px;
+  border: #000000;
+  box-shadow: #000000 10px 10px;
+  border-width: 3px;
+  border-style: solid;
+}
+.RefreshCartButton:hover {
+  height: 50px;
+  width: 100px;
+  cursor: pointer;
+  background-color: #000000;
+  color: white;
+  border-radius: 25px;
+  border: #000000;
+  box-shadow: #ffffff 10px 10px;
+  border-width: 3px;
+  border-style: solid;
+}
+.OrderCompleteContainer {
+  color: white;
+  margin-top: 100px;
+  background-color: rgb(32, 13, 51);
+  border: #000000;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 25px;
+  width: 70vw;
+  box-shadow: #000000 10px 10px;
+  height: 500px;
+  margin-left: 13%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+}
+.returnToHomeButton {
+  margin-top: 20px;
+  height: 30px;
+  width: 200px;
+  box-shadow: #000000 10px 10px;
+  font-size: 20px;
+}
+.returnToHomeButton:hover {
+  margin-top: 20px;
+  height: 30px;
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+  width: 200px;
+  box-shadow: #ffffff 10px 10px;
+  font-size: 20px;
+}
+
+/* END CART PAGE */

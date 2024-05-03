@@ -1,0 +1,71 @@
+/* PRODUCT DISPLAY */
+
+.ProductDisplayContainer {
+  background-color: rgb(32, 13, 51);
+  border: solid 3px #000000;
+  margin-top: 3rem;
+  box-shadow: 5px 5px 0px 0px #000000;
+  border-radius: 40px; /* Merged the duplicated property */
+  max-width: 70%;
+  min-height: 500px;
+  color: white;
+  margin-left: auto; /* Changed for centering */
+  margin-right: auto; /* Added for centering */
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 1rem; /* Added some padding */
+}
+
+.displayImage {
+  width: 100%; /* Make width responsive */
+  max-width: 500px; /* Limit max width */
+  margin-top: 90px;
+  margin-left: auto; /* Center align the image */
+  margin-right: auto; /* Center align the image */
+  box-shadow: 10px 10px 0px 0px #000000;
+}
+
+.displayImage:hover {
+  cursor: pointer;
+}
+
+.ProductDisplayInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Make width responsive */
+  gap: 2rem; /* Adjust gap */
+  text-align: justify;
+  padding: 1rem; /* Added some padding */
+}
+
+.ProductDisplayHeader {
+  font-size: 2.5rem; /* Adjusted for scalability */
+}
+
+.ProductDisplayDescription {
+  font-size: 1.5rem; /* Adjusted for scalability */
+  width: 100%; /* Make width responsive */
+  max-width: 750px; /* Limit max width */
+}
+
+/* Media Query for screens smaller than 768px */
+@media (max-width: 768px) {
+  .ProductDisplayContainer {
+    flex-direction: column;
+    width: 90%; /* Increase width for small screens */
+  }
+
+  .displayImage {
+    margin-top: 2rem;
+    margin-left: 0; /* Remove side margins for center alignment */
+  }
+
+  .ProductDisplayInfo {
+    width: 90%; /* Adjust width */
+    gap: 1rem; /* Reduce gap */
+  }
+}
+/* PRODUCT DISPLAY */
