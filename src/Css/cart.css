@@ -1,81 +1,96 @@
+
 /* CART PAGE */
 .CartContainer {
   /* background-color: rgb(185, 219, 190); */
   width: 70vw;
-  height: fit-content;
-  margin-left: 13%;
+  max-width: 1200px; /* Cap the maximum width to maintain aesthetics */
+  margin: 0 auto; /* Centered horizontally */
   display: flex;
   flex-direction: column;
   gap: 40px;
+  padding: 20px; /* Added padding for better spacing */
 }
+
 .CartItemContainer {
   background-color: rgb(32, 13, 51);
-  border: #000000;
-  border-width: 3px;
-  box-shadow: #000000 10px 10px;
-  border-style: solid;
+  border: 3px solid #000000;
+  box-shadow: 10px 10px 0px 0px #000000;
   border-radius: 45px;
   color: white;
   display: flex;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  justify-content: space-between; /* Space items out */
+  padding: 20px; /* Internal padding for aesthetics */
 }
+
 .CartItemInfoDiv {
-  margin-left: 10%;
-  margin-top: 3%;
-  width: 50%;
-  margin-top: 3rem;
-  font-size: 25px;
+  flex: 1 1 300px; /* Flexibility in growing and shrinking with a basis of 300px */
+  margin-top: 3rem; /* Consolidated margin-top */
+  font-size: 1.5rem; /* Responsive font size */
+  padding: 10px; /* Added padding for better text display */
 }
+
 .CartItemImage {
-  width: 400px;
-  height: 400px;
-  box-shadow: #000000 10px 10px;
+  width: 100%;
+  max-width: 400px; /* Maximum width to control size on larger screens */
+  height: auto; /* Maintain aspect ratio */
+  aspect-ratio: 1/1; /* Added to maintain aspect ratio */
+  box-shadow: 10px 10px 0px 0px #000000;
 }
+
 .CartItemImageAndQuantDiv {
-  margin-top: 3%;
-  margin-left: 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  flex: 1; /* Take up remaining space */
 }
+
 .CartQuantity {
   display: flex;
+  align-items: center;
+padding-top: 2rem;
   justify-content: center;
-  margin-top: 1rem;
   gap: 15px;
   align-items: center;
 }
-.CartQuantityButton {
-  height: 30px;
-  width: 40px;
-  font-size: 25px;
-  text-align: center;
-  align-items: center;
+
+.CartQuantityButton, .DeleteItemFromCartButton {
+  height: 50px; /* Increased for better touch interaction */
+  font-size: 1.25rem; /* Responsive font size */
+  display: flex;
+  margin-top: 2rem;
   justify-content: center;
-}
-.CartQuantityButton:hover {
-  height: 30px;
-  width: 40px;
-  cursor: pointer;
-  background-color: #000000;
-  color: white;
-  font-size: 25px;
-  text-align: center;
   align-items: center;
-  justify-content: center;
-}
-.DeleteItemFromCartButton {
-  height: 30px;
-  width: 90px;
-}
-.DeleteItemFromCartButton:hover {
-  height: 30px;
-  width: 90px;
-  background-color: #000000;
-  color: white;
   cursor: pointer;
 }
+
+.CartQuantityButton:hover, .DeleteItemFromCartButton:hover {
+  background-color: #000000;
+  color: white;
+  box-shadow: #ffffff 10px 10px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .CartContainer {
+    width: 90vw; /* Adjust width for smaller screens */
+  }
+
+  .CartItemContainer {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+  }
+
+  .CartItemImage, .CartItemImageAndQuantDiv {
+    max-width: 100%; /* Full width for images and quantity div */
+  }
+
+  .CartItemInfoDiv, .CartQuantityButton, .DeleteItemFromCartButton {
+    width: 100%; /* Full width for better layout on small screens */
+  }
+}
+
 .EmptyCartMessage {
   width: 70vw;
   height: 200px;

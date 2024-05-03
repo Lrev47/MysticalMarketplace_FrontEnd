@@ -55,21 +55,11 @@ export function TopNav({ token, userId }) {
         Order History
       </Link>
       <Link className="TopNavLinks" to="/Cart" onClick={cartOrLoginRedirect}>
-        <img
-          className="CartImageIcon"
-          src="https://imagizer.imageshack.com/img924/4575/QZpV8d.png"
-        />
+        Cart
       </Link>
-      {/* need to find out how to search */}
-      <form className="searchBarForm">
-        <img
-          src="https://imagizer.imageshack.com/img923/7796/1WvexY.png"
-          alt="Search"
-          className="SearchBarButton"
-        />
-        <input className="SearchBar" />
-      </form>
-    </div>
+      <Link className="TopNavLinks" to="/Categories" >
+      Categories
+      </Link>   </div>
     // need to find out how to search
   );
 }

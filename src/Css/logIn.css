@@ -1,47 +1,50 @@
 /* LOGIN PAGE */
 .LogInContainer {
   background-color: rgb(32, 13, 51);
-  border: #000000;
-  border-width: 3px;
-  border-style: solid;
+  border: solid 3px #000000;
   border-radius: 25px;
   color: white;
-  box-shadow: #000000 10px 10px;
+  box-shadow: 10px 10px 0px 0px #000000;
   width: 70vw;
+  max-width: 1450px; /* Cap the maximum width */
   height: 700px;
-  margin-left: 13%;
-  margin-top: 10vh;
+  margin: 10vh auto 0; /* Center horizontally and add top margin */
   position: relative;
 }
+
 .LogInFormWrapper {
   position: absolute;
   top: 0;
   left: 0;
-  width: 70vw;
-  height: 700px;
+  width: 100%; /* Use parent's width */
+  height: 100%; /* Use parent's height */
   display: flex;
   flex-direction: column;
   gap: 20px;
   justify-content: center;
   align-items: center;
 }
+
 .LoginFormLabel {
   font-size: 30px;
 }
+
 .LoginInput {
   font-size: 20px;
 }
+
 .LogInSubmitbutton {
   font-size: 25px;
-  box-shadow: #000000 10px 10px;
+  box-shadow: 10px 10px 0px 0px #000000;
 }
+
 .LogInSubmitbutton:hover {
-  font-size: 25px;
-  box-shadow: #000000 10px 10px;
+  cursor: pointer;
   background-color: #000000;
   color: white;
-  box-shadow: #ffffff 10px 10px;
+  box-shadow: 10px 10px 0px 0px #ffffff;
 }
+
 .selectUserheading {
   color: white;
   font-size: 50px;
@@ -49,62 +52,64 @@
   display: flex;
   width: 70vw;
   justify-content: center;
-  margin-left: 13%;
+  margin-left: auto;
+  margin-right: auto; /* Center horizontally */
 }
+
 .selectUserContainer {
   background-color: rgb(32, 13, 51);
-  border: #000000;
-  box-shadow: #000000 10px 10px;
-  border-width: 3px;
-  border-style: solid;
+  border: solid 3px #000000;
+  box-shadow: 10px 10px 0px 0px #000000;
   border-radius: 25px;
   width: 70vw;
-  height: 700px;
-  margin-left: 13%;
-
+  max-width: 1450px; /* Maximum width */
+  height: auto; /* Flexible height to accommodate content */
+  margin: 20px auto; /* Center horizontally */
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  justify-content: center;
-  align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid columns */
+  gap: 20px; /* Space between grid items */
+  padding: 20px; /* Padding inside the container */
 }
+
 .UserContainer {
-  width: 200px;
-  height: 200px;
   position: relative;
+  width: 100%; /* Full width to fill grid column */
+  padding-bottom: 100%; /* Maintain aspect ratio */
 }
-.selectUserImage {
-  margin-left: 3.25vw;
-  width: 100%;
-  box-shadow: #000000 10px 10px;
-  height: 100%;
+
+.selectUserImage, .UserImageOverlay {
   position: absolute;
-  top: 0;
-  left: 0;
-}
-.selectUserImage:hover {
-  cursor: pointer;
-}
-.UserImageOverlay {
-  cursor: pointer;
-  position: absolute;
-  margin-left: 3.25vw;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0);
-  color: white;
-  font-size: 30px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: background-color 0.5s ease, opacity 0.5s ease;
+  display: flex;        /* Enables the use of flexbox properties */
+  align-items: center;  /* Centers content vertically within the container */
+  justify-content: center; /* Centers content horizontally within the container */
+  text-align: center;   /* Ensures text inside the flex container is centered textually */
+  color: transparent;   /* Makes text invisible */
+  transition: color 0.5s ease; /* Smooth transition for text visibility */
 }
+
 .UserImageOverlay:hover {
+  cursor: pointer;
   background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
   opacity: 1;
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 768px) {
+  .LogInContainer, .selectUserContainer {
+    width: 90vw; /* Adjust width for smaller screens */
+  }
+
+  .selectUserheading, .LoginFormLabel, .LoginInput, .LogInSubmitbutton {
+    font-size: 20px; /* Decrease font size for smaller screens */
+  }
+
+  .selectUserContainer {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* More adaptive columns */
+  }
 }
 /* END LOGIN PAGE */

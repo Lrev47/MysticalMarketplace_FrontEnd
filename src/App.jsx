@@ -2,7 +2,7 @@ import { useState } from "react";
 import MainContainer from "./components/MainContainer";
 import TopNav from "./components/TopNav";
 import React from "react";
-import TopNavTwo from "./components/NavBar2";
+// import TopNavTwo from "./components/NavBar2";
 import Footer from "./components/Footer";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <TopNav token={token} userId={userId} />
-      <TopNavTwo token={token} userId={userId} />
+      {/* <TopNavTwo token={token} userId={userId} /> */}
       <MainContainer
         orderId={orderId}
         setOrderId={setOrderId}

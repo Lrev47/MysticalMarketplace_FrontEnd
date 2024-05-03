@@ -1,48 +1,74 @@
+/* Main navigation styles */
 .TopNav {
-  /* background-color: rgb(167, 196, 170); */
+  /* background-color: rgb(32, 13, 51); */
   color: white;
   margin: 0;
-  height: 3vh;
+  height: 60px; /* Fixed height for better control */
   display: flex;
-  justify-content: center;
-  text-align: center;
-  gap: 20px;
-  padding-left: 40%;
+  justify-content: space-between; /* Space distribution between links and search bar */
+  align-items: center; /* Vertical alignment of all items */
+  padding: 0 20px; /* Padding on both sides */
 }
+
 .TopNavLinks {
   color: rgb(255, 255, 255);
   text-decoration: none;
-  padding-top: 5px;
-  text-align: center;
-  margin-top: 8px;
+  padding: 8px 15px; /* Padding to increase clickable area */
+  border-radius: 25px; /* Rounded corners */
+  white-space: nowrap; /* Prevent text from wrapping */
+  flex-shrink: 0; /* Prevents shrinking */
 }
+
 .TopNavLinks:hover {
   color: rgb(0, 0, 0);
   background-color: #ffffff;
   text-decoration: none;
-  padding-top: 5px;
-  border-radius: 25px;
 }
+
 .searchBarForm {
-  margin-left: 200px;
   display: flex;
   align-items: center;
 }
+
+.SearchBarButton, .SearchBar {
+  border: none; /* Remove default border styling */
+}
+
 .SearchBarButton {
-  margin-right: 10px;
-}
-.SearchBar {
-  margin-right: 300px;
-}
-.SearchBarButton {
-  width: 20px;
-}
-.SearchBarButton:hover {
+  width: 20px; /* Fixed width for the icon */
   cursor: pointer;
+  margin-right: 10px; /* Space between the search icon and the input field */
 }
+
+.SearchBar {
+  padding: 5px 10px; /* Padding inside the search box */
+  outline: none; /* Remove focus outline */
+}
+
 .CartImageIcon {
-  width: 40px;
-  margin-left: 20rem;
+  width: 25px;
   position: relative;
-  top: -8px;
+  top: -8px; /* Adjust top position to align properly */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .TopNav {
+    flex-wrap: wrap; /* Allow nav items to wrap within the container */
+    height: auto; /* Adjustable height */
+    /* background-color: rgba(32, 13, 51, 0.9);  */
+  }
+
+  .TopNavLinks {
+    flex-grow: 1; /* Allows links to fill the space */
+    text-align: center; /* Center text within links */
+    margin-top: 10px; /* Spacing for wrapped items */
+    font-size: smaller; /* Smaller font size on small screens */
+  }
+
+  .searchBarForm {
+    width: 100%; /* Full width for the search form on small screens */
+    justify-content: center; /* Center the search form */
+    margin-top: 10px; /* Spacing after other nav items */
+  }
 }

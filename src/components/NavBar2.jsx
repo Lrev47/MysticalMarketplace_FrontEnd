@@ -1,51 +1,51 @@
-import { Link, useNavigate } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
 
-export function TopNavTwo({ token, userId }) {
-  const navigate = useNavigate();
+// export function TopNavTwo({ token, userId }) {
+//   const navigate = useNavigate();
 
-  const accountOrLoginRedirect = (e) => {
-    e.preventDefault();
-    if (!token) {
-      navigate("/login");
-    } else {
-      navigate(`/Account/${userId}`);
-    }
-  };
+//   const accountOrLoginRedirect = (e) => {
+//     e.preventDefault();
+//     if (!token) {
+//       navigate("/login");
+//     } else {
+//       navigate(`/Account/${userId}`);
+//     }
+//   };
 
-  const cartOrLoginRedirect = (e) => {
-    e.preventDefault();
-    if (!token) {
-      navigate("/login");
-    } else {
-      navigate(`/Cart`);
-    }
-  };
+//   const cartOrLoginRedirect = (e) => {
+//     e.preventDefault();
+//     if (!token) {
+//       navigate("/login");
+//     } else {
+//       navigate(`/Cart`);
+//     }
+//   };
 
-  return (
-    <div className="TopNavTwo">
-      <Link className="TopNavTwoLinks" to="/">
-        Home
-      </Link>
+//   return (
+//     <div className="TopNavTwo">
+//       <Link className="TopNavTwoLinks" to="/">
+//         Home
+//       </Link>
 
-      <a
-        className="TopNavTwoLinks"
-        href="/Account"
-        onClick={accountOrLoginRedirect}
-      >
-        Account
-      </a>
+//       <a
+//         className="TopNavTwoLinks"
+//         href="/Account"
+//         onClick={accountOrLoginRedirect}
+//       >
+//         Account
+//       </a>
 
-      <Link className="TopNavTwoLinks" to="/Cart" onClick={cartOrLoginRedirect}>
-        Cart
-      </Link>
-      <Link className="TopNavTwoLinks" to="/login">
-        LogIn
-      </Link>
-      <Link className="TopNavTwoLinks" to="/Categories">
-        Categories
-      </Link>
-    </div>
-  );
-}
+//       <Link className="TopNavTwoLinks" to="/Cart" onClick={cartOrLoginRedirect}>
+//         Cart
+//       </Link>
+//       <Link className="TopNavTwoLinks" to="/login">
+//         LogIn
+//       </Link>
+//       <Link className="TopNavTwoLinks" to="/Categories">
+//         Categories
+//       </Link>
+//     </div>
+//   );
+// }
 
-export default TopNavTwo;
+// export default TopNavTwo;

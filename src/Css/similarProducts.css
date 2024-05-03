@@ -1,64 +1,70 @@
 /* SIMILAR PRODUCT SECTION */
 .SimilarProductsContainer {
   background-color: rgb(32, 13, 51);
-  border: #000000;
-  border-width: 3px;
-  border-style: solid;
+  border: 3px solid #000000;
   border-radius: 25px;
+  box-shadow: 10px 10px 0px 0px #000000;
   width: 70vw;
-  box-shadow: #000000 10px 10px;
+  max-width: 1200px; /* Cap the maximum width to maintain aesthetics */
   color: white;
-  height: 700px;
-  margin-left: 13%;
-  margin-top: 15vh;
-}
-.SimilarProductsHeading {
+  height: auto; /* Height auto for better flexibility */
+  margin: 15vh auto 0; /* Centered horizontally and top margin */
+  padding: 20px; /* Padding for internal spacing */
   display: flex;
-  justify-content: center;
-  font-size: 35px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SimilarProductsHeading {
+  font-size: 2rem; /* Adjusted font size for better scaling */
   padding-top: 20px;
+  width: 100%; /* Full width */
+  text-align: center; /* Center text alignment */
 }
+
 .SimilarProductsDisplayContainer {
-  width: 70vw;
-  height: 500px;
+  width: 100%; /* Full width of its parent container */
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr); /* Three columns, regardless of screen size */
+  gap: 20px; /* Space between items */
+  padding: 20px 0; /* Padding top and bottom */
 }
+
 .SimilarProductContainer {
-  margin-top: 6vh;
-  width: 350px;
-  height: 350px;
-  margin-left: 4.25vw;
+  width: 100%; /* Full width to use grid column space */
+  height: auto; /* Fixed height */
   position: relative;
+  margin: auto; /* Center horizontally */
 }
-.SimilarProductImage {
+
+.SimilarProductImage, .SimilarProductImageOverlay {
   width: 100%;
+  
   box-shadow: #000000 10px 10px;
-  height: 100%;
 }
-.SimilarProductImage:hover {
-  cursor: pointer;
-}
+
 .SimilarProductImageOverlay {
-  cursor: pointer;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
   background-color: rgba(0, 0, 0, 0);
   color: white;
-  font-size: 30px;
-  text-align: center;
+  font-size: 1.5rem; /* Adjusted font size */
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   transition: background-color 0.5s ease, opacity 0.5s ease;
 }
+
 .SimilarProductImageOverlay:hover {
   background-color: rgba(0, 0, 0, 0.7);
   opacity: 1;
 }
 
-/* END SIMILAR PRODUCT SECTION */
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .SimilarProductsDisplayContainer {
+    grid-template-columns: repeat(3, 1fr); /* Keep three columns even on smaller screens */
+  }
+}
