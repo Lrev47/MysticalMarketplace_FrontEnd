@@ -25,7 +25,10 @@
 .SimilarProductsDisplayContainer {
   width: 100%; /* Full width of its parent container */
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three columns, regardless of screen size */
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); /* Three columns, regardless of screen size */
   gap: 20px; /* Space between items */
   padding: 20px 0; /* Padding top and bottom */
 }
@@ -37,9 +40,9 @@
   margin: auto; /* Center horizontally */
 }
 
-.SimilarProductImage, .SimilarProductImageOverlay {
+.SimilarProductImage,
+.SimilarProductImageOverlay {
   width: 100%;
-  
   box-shadow: #000000 10px 10px;
 }
 
@@ -47,6 +50,8 @@
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0);
   color: white;
   font-size: 1.5rem; /* Adjusted font size */
@@ -57,14 +62,18 @@
   transition: background-color 0.5s ease, opacity 0.5s ease;
 }
 
-.SimilarProductImageOverlay:hover {
+.SimilarProductContainer:hover .SimilarProductImageOverlay {
   background-color: rgba(0, 0, 0, 0.7);
   opacity: 1;
+  cursor: pointer;
 }
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .SimilarProductsDisplayContainer {
-    grid-template-columns: repeat(3, 1fr); /* Keep three columns even on smaller screens */
+    grid-template-columns: repeat(
+      1,
+      1fr
+    ); /* Adjust to one column on smaller screens */
   }
 }

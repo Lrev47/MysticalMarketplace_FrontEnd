@@ -97,7 +97,7 @@ export const CartPage = ({ token, userId }) => {
                   -
                 </button>
 
-                <p>Quantity: {item.quantity}</p>
+                <p className="CartQuantityText">Quantity: {item.quantity}</p>
                 <button
                   className="CartQuantityButton"
                   onClick={() => updateQuantity(item.id, item.quantity + 1)}
