@@ -54,6 +54,7 @@
   gap: 15px;
   align-items: center;
 }
+
 .CartQuantityText {
   padding-top: 1.8rem;
 }
@@ -82,6 +83,7 @@
     width: 80vw;
   }
 }
+
 @media (max-width: 992px) {
   .CartContainer {
     width: 90vw;
@@ -97,15 +99,26 @@
     flex-direction: column; /* Stack items vertically on smaller screens */
   }
 
-  .CartItemImage,
+  .CartItemImage {
+    max-width: 80%; /* Reduce image size for smaller screens */
+    margin: 0 auto; /* Center image horizontally */
+  }
+
   .CartItemImageAndQuantDiv {
     max-width: 100%; /* Full width for images and quantity div */
+  }
+
+  .CartItemInfoDiv,
+  .CartQuantity,
+  .CartQuantityText {
+    text-align: center; /* Center text on smaller screens */
   }
 
   .CartItemInfoDiv,
   .CartQuantityButton,
   .DeleteItemFromCartButton {
     width: 100%; /* Full width for better layout on small screens */
+    margin-top: 1rem; /* Add spacing between elements */
   }
 }
 
@@ -125,6 +138,7 @@
   font-size: 20px;
   gap: 40px;
 }
+
 .PurchaseOrderandTotalContainer {
   background-color: rgb(32, 13, 51);
   border: #000000;
@@ -209,21 +223,6 @@
   }
 }
 
-/* @media (max-width: 576px) {
-  .PurchaseOrderandTotalContainer {
-    width: 100vw;
-    height: 60px;
-    padding: 5px;
-    border-radius: 30px;
-    font-size: 12px;
-  }
-
-  .PurchaseItemsButton {
-    width: 150px;
-    height: 30px;
-    font-size: 14px;
-  }
-} */
 .RefreshCartButton {
   height: 50px;
   width: 100px;
@@ -233,6 +232,7 @@
   border-width: 3px;
   border-style: solid;
 }
+
 .RefreshCartButton:hover {
   height: 50px;
   width: 100px;
@@ -245,6 +245,7 @@
   border-width: 3px;
   border-style: solid;
 }
+
 .OrderCompleteContainer {
   color: white;
   margin-top: 100px;
@@ -277,7 +278,6 @@
   border: none;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
-
   transition: all 0.2s ease;
 }
 

@@ -10,7 +10,10 @@
   height: auto;
   margin: 5vh auto; /* Center the container and add vertical margin */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid layout */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* Responsive grid layout */
   gap: 20px;
   align-items: center;
   padding: 20px;
@@ -24,19 +27,25 @@
   margin: 0 auto; /* Center the image */
 }
 
-.SingleProductLineOne, .SingleProductLineTwo {
+.SingleProductLineOne,
+.SingleProductLineTwo {
   height: 1px;
   background-color: rgb(255, 255, 255);
   width: 100%; /* Full width to match container */
   margin-top: 5vh;
 }
 
-.SingleProductName, .SingleProductDescription, .SingleProductInStock, .SingleProductQuantity {
+.SingleProductName,
+.SingleProductDescription,
+.SingleProductInStock,
+.SingleProductQuantity,
+.SingleProductRating {
   font-size: 1.5rem; /* Adjusted font size for better scaling */
   padding: 20px;
 }
 
-.SingleProductPriceandButtonContainer, .SingleProductInStockandQuantityContainer {
+.SingleProductPriceandButtonContainer,
+.SingleProductInStockandQuantityContainer {
   display: flex;
   flex-wrap: wrap; /* Allow wrapping on smaller screens */
   justify-content: space-around;
@@ -64,17 +73,32 @@
   .singleProductContainer {
     width: 90vw; /* Adjust width for smaller screens */
     grid-template-columns: 1fr; /* Single column layout on small screens */
+    padding: 10px; /* Reduce padding for smaller screens */
   }
 
-  .SingleProductName, .SingleProductDescription, .SingleProductInStock, .SingleProductQuantity {
+  .singleProductImage {
+    max-width: 100%; /* Full width for smaller screens */
+  }
+
+  .SingleProductName,
+  .SingleProductDescription,
+  .SingleProductInStock,
+  .SingleProductQuantity,
+  .SingleProductRating {
     font-size: 1.25rem; /* Smaller font size on mobile devices */
+    padding: 10px; /* Reduce padding for smaller screens */
+    text-align: center; /* Center text on smaller screens */
   }
 
-  .SingleProductPriceandButtonContainer, .SingleProductInStockandQuantityContainer {
+  .SingleProductPriceandButtonContainer,
+  .SingleProductInStockandQuantityContainer {
     flex-direction: column; /* Stack elements vertically on small screens */
+    padding: 10px; /* Reduce padding for smaller screens */
   }
 
   .SingleProductCartButton {
     width: 100%; /* Full width button on small screens */
+    font-size: 18px; /* Smaller font size for better readability on mobile */
+    height: 40px; /* Adjust height for better touch interaction */
   }
 }

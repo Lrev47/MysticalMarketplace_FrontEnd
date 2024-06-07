@@ -11,7 +11,10 @@
   height: 400px;
   margin: 5vh auto; /* Center container horizontally and add vertical margin */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid layout */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* Responsive grid layout */
   align-items: center;
   padding: 20px; /* Internal spacing */
 }
@@ -28,7 +31,8 @@
 }
 
 /* Header and Info Text Styles */
-.UserInfoHeader, .UserInfo {
+.UserInfoHeader,
+.UserInfo {
   color: white;
   text-align: center; /* Center text for better readability */
   padding: 10px; /* Add padding for spacing */
@@ -54,7 +58,8 @@
     max-width: 200px; /* Smaller image on small screens */
   }
 
-  .UserInfoHeader, .UserInfo {
+  .UserInfoHeader,
+  .UserInfo {
     font-size: 1.25rem; /* Slightly smaller font size on mobile */
   }
 }
@@ -97,7 +102,8 @@
 
 /* Responsive Font Size Adjustments */
 @media (max-width: 768px) {
-  .UsernameAndPasswordContainer, .ViewOrderHistoryContainer {
+  .UsernameAndPasswordContainer,
+  .ViewOrderHistoryContainer {
     width: 90vw; /* Adjust width for smaller screens */
     height: auto; /* Auto height for better flexibility */
     padding: 20px; /* Padding for internal spacing */
@@ -192,7 +198,8 @@
     padding: 10px; /* Reduce padding */
   }
 
-  .MoneyInput, .AddMoneyButton {
+  .MoneyInput,
+  .AddMoneyButton {
     font-size: 18px; /* Smaller font size for smaller screens */
   }
 }

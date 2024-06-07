@@ -6,4 +6,10 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }

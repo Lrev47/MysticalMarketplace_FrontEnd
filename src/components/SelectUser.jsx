@@ -9,30 +9,33 @@ export function DisplayUsers({ setUserName, setPassword }) {
     setPassword(user.password);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
   if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>error fetching users.</p>;
-  // console.log(data);
+  if (error) return <p>Error fetching users.</p>;
 
   return (
     <>
-      <h2 className="selectUserheading"> Select User</h2>
-      <div className="selectUserContainer">
+      <h2 className="DisplayUsers__selectUserheading">Select User</h2>
+      <div className="DisplayUsers__selectUserContainer">
         {data.map((user) => (
           <div
             onClick={() => handleClick(user)}
-            className="UserContainer"
+            className="DisplayUsers__UserContainer"
             key={user.id}
           >
             <img
-              className="selectUserImage"
+              className="DisplayUsers__selectUserImage"
               src={user.userImageUrl}
               alt={user.username}
             />
-            <div className="UserImageOverlay">{user.username}</div>
+            <div className="DisplayUsers__UserImageOverlay">
+              {user.username}
+            </div>
           </div>
         ))}
       </div>
     </>
   );
 }
+
 export default DisplayUsers;

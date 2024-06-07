@@ -110,4 +110,55 @@
 .socialMediaButton:hover {
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  /* Mobile styles */
+  .HomePageProductsContainer {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(150px, 1fr)
+    ); /* Adjust columns for mobile */
+    gap: 10px; /* Reduce gap for mobile */
+  }
+
+  .ProductContainer {
+    max-width: 150px; /* Adjust max-width for mobile */
+    margin: 0.5rem auto; /* Reduce margin for mobile */
+  }
+
+  .HomePageProductImage {
+    box-shadow: 5px 5px 0px 0px #000000; /* Adjust shadow for mobile */
+  }
+
+  .Footer {
+    width: 100%; /* Full width for mobile */
+    padding: 1rem; /* Adjust padding for mobile */
+    margin: 1rem auto; /* Adjust margin for mobile */
+    gap: 1rem; /* Adjust gap for mobile */
+    font-size: 0.875rem; /* Shrink text size for mobile */
+  }
+
+  .WarningLabel {
+    padding: 1rem; /* Adjust padding for mobile */
+    margin-top: 1rem; /* Adjust top margin for mobile */
+    font-size: 0.875rem; /* Shrink text size for mobile */
+  }
+
+  .socialMediaButton {
+    width: 20px; /* Adjust size for mobile */
+    height: 20px; /* Adjust size for mobile */
+  }
+
+  /* Keep overlays visible on mobile */
+  .ImageOverlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 1;
+  }
+
+  .HomePageProductImage:hover .ImageOverlay,
+  .ImageOverlay:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 1;
+  }
+}
 /* END HOME PAGE */

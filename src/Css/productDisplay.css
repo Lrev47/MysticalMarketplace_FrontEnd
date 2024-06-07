@@ -67,5 +67,14 @@
     width: 90%; /* Adjust width */
     gap: 1rem; /* Reduce gap */
   }
+
+  .ProductDisplayHeader {
+    font-size: 2rem; /* Adjust font size for smaller screens */
+  }
+
+  .ProductDisplayDescription {
+    font-size: 1.2rem; /* Adjust font size for smaller screens */
+    max-width: 100%; /* Remove max-width constraint */
+  }
 }
 /* PRODUCT DISPLAY */

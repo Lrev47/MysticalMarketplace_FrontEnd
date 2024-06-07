@@ -6,18 +6,17 @@
   color: white;
   box-shadow: 10px 10px 0px 0px #000000;
   width: 70vw;
-  max-width: 1450px; /* Cap the maximum width */
-  height: 700px;
-  margin: 10vh auto 0; /* Center horizontally and add top margin */
+  max-width: 1450px;
+  height: auto;
+  margin: 10vh auto 0;
   position: relative;
+  padding: 20px; /* Added padding for better content spacing */
 }
 
 .LogInFormWrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%; /* Use parent's width */
-  height: 100%; /* Use parent's height */
+  position: relative; /* Changed to relative to avoid overlap */
+  width: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -45,7 +44,7 @@
   box-shadow: 10px 10px 0px 0px #ffffff;
 }
 
-.selectUserheading {
+.DisplayUsers__selectUserheading {
   color: white;
   font-size: 50px;
   margin-top: 15vh;
@@ -53,45 +52,47 @@
   width: 70vw;
   justify-content: center;
   margin-left: auto;
-  margin-right: auto; /* Center horizontally */
+  margin-right: auto;
 }
 
-.selectUserContainer {
+.DisplayUsers__selectUserContainer {
   background-color: rgb(32, 13, 51);
   border: solid 3px #000000;
   box-shadow: 10px 10px 0px 0px #000000;
   border-radius: 25px;
   width: 70vw;
-  max-width: 1450px; /* Maximum width */
-  height: auto; /* Flexible height to accommodate content */
-  margin: 20px auto; /* Center horizontally */
+  max-width: 1450px;
+  height: auto;
+  margin: 20px auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid columns */
-  gap: 20px; /* Space between grid items */
-  padding: 20px; /* Padding inside the container */
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
 
-.UserContainer {
+.DisplayUsers__UserContainer {
   position: relative;
-  width: 100%; /* Full width to fill grid column */
-  padding-bottom: 100%; /* Maintain aspect ratio */
+  width: 100%;
+  padding-top: 100%; /* Maintains aspect ratio */
 }
 
-.selectUserImage, .UserImageOverlay {
+.DisplayUsers__selectUserImage,
+.DisplayUsers__UserImageOverlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;        /* Enables the use of flexbox properties */
-  align-items: center;  /* Centers content vertically within the container */
-  justify-content: center; /* Centers content horizontally within the container */
-  text-align: center;   /* Ensures text inside the flex container is centered textually */
-  color: transparent;   /* Makes text invisible */
-  transition: color 0.5s ease; /* Smooth transition for text visibility */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: transparent;
+  transition: color 0.5s ease;
+  object-fit: cover; /* Ensures images maintain aspect ratio */
 }
 
-.UserImageOverlay:hover {
+.DisplayUsers__UserImageOverlay:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.7);
   color: #ffffff;
@@ -100,16 +101,77 @@
 
 /* Media Queries for smaller screens */
 @media (max-width: 768px) {
-  .LogInContainer, .selectUserContainer {
-    width: 90vw; /* Adjust width for smaller screens */
+  .LogInContainer,
+  .DisplayUsers__selectUserContainer {
+    width: 90vw;
   }
 
-  .selectUserheading, .LoginFormLabel, .LoginInput, .LogInSubmitbutton {
-    font-size: 20px; /* Decrease font size for smaller screens */
+  .DisplayUsers__selectUserheading,
+  .LoginFormLabel,
+  .LoginInput,
+  .LogInSubmitbutton {
+    font-size: 20px;
   }
 
-  .selectUserContainer {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* More adaptive columns */
+  .DisplayUsers__selectUserContainer {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .LogInFormWrapper {
+    gap: 10px;
+  }
+
+  .LogInContainer {
+    margin: 5vh auto;
+  }
+
+  .LoginFormLabel,
+  .LoginInput,
+  .LogInSubmitbutton {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .DisplayUsers__selectUserheading {
+    font-size: 30px;
+    margin-top: 10vh;
+  }
+
+  .DisplayUsers__UserContainer {
+    padding-top: 150%; /* Maintains aspect ratio */
+  }
+
+  .DisplayUsers__selectUserImage,
+  .DisplayUsers__UserImageOverlay {
+    font-size: smaller;
+  }
+}
+
+/* Additional Media Queries for extra small screens */
+@media (max-width: 480px) {
+  .LogInContainer,
+  .DisplayUsers__selectUserContainer {
+    width: 95vw;
+  }
+
+  .LoginFormLabel,
+  .LoginInput,
+  .LogInSubmitbutton {
+    font-size: 18px;
+  }
+
+  .DisplayUsers__selectUserheading {
+    font-size: 25px;
+    margin-top: 8vh;
+  }
+
+  .DisplayUsers__UserContainer {
+    padding-top: 200%; /* Maintains aspect ratio */
+  }
+
+  .DisplayUsers__selectUserImage,
+  .DisplayUsers__UserImageOverlay {
+    font-size: x-small;
   }
 }
 /* END LOGIN PAGE */
