@@ -162,3 +162,36 @@
   }
 }
 /* END HOME PAGE */
+.Pagination {
+  display: flex;
+  justify-content: center; /* Center the pagination */
+  align-items: center; /* Center items vertically */
+  gap: 10px; /* Space between pagination items */
+  margin: 2rem auto; /* Center and add vertical margin */
+}
+
+.PaginationButton {
+  background-color: #200d33; /* Match footer background */
+  color: white;
+  border: solid 2px #000000;
+  border-radius: 5px;
+  padding: 0.5rem 1rem; /* Responsive padding */
+  transition: background-color 0.3s ease;
+}
+
+.PaginationButton:hover {
+  background-color: #3e1a66; /* Slightly lighter on hover */
+  cursor: pointer;
+}
+
+.PaginationButton:disabled {
+  background-color: #555555; /* Grey out disabled buttons */
+}
+.PageButton:hover {
+  background-color: #8f8f8f; /* Slightly lighter on hover */
+  cursor: pointer;
+}
+.PageButton:disabled {
+  background-color: #555555; /* Grey out disabled buttons */
+  cursor: not-allowed;
+}
